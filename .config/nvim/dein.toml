@@ -1,0 +1,57 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+    if dein#util#_is_windows()
+        let cmd = 'tools\\update-dll-mingw'
+    elseif dein#util#_is_cygwin()
+        let cmd = 'make -f make_cygwin.mak'
+    elseif executable('gmake')
+        let cmd = 'gmake'
+    else
+        let cmd = 'make'
+    endif
+  let g:dein#plugin.build = cmd
+'''
+
+# color scheme
+[[plugins]]
+# repo = 'jacoborus/tender.vim'
+# repo = 'jonathanfilip/vim-lucius'
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+    nnoremap <silent><C-e> :<C-u>NERDTreeToggle<CR>
+    let g:NERDTreeShowHidden = 1
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+depends = ['vim-airline-themes']
+hook_add = '''   
+    let g:airline_powerline_fonts = 1
+    set laststatus=2
+    let g:airline_theme = 'simple'
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#buffer_idx_mode = 1
+    let g:airline#extensions#virtualenv#enabled = 1
+    let g:airline#extensions#whitespace#mixed_indent_algo = 1 	
+''' 
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+    nnoremap [figitive] <Nop>
+    nnoremap <Leader>i [figitive]
+    nnoremap <silent> [figitive]s :<C-u>Gstatus<CR>
+    nnoremap <silent> [figitive]d :<C-u>Gdiff<CR>
+    nnoremap <silent> [figitive]b :<C-u>Gblame<CR>
+    set diffopt+=vertical
+'''
