@@ -27,7 +27,7 @@ module.exports = {
     cursorAccentColor: '#000',
 
     // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
-    cursorShape: 'BLOCK',
+    cursorShape: 'BEAM',
 
     // set to `true` (without backticks and without quotes) for blinking cursor
     cursorBlink: false,
@@ -40,7 +40,7 @@ module.exports = {
     backgroundColor: '#000',
 
     // terminal selection color
-    selectionColor: 'rgba(248,28,229,0.3)',
+    selectionColor: 'rgba(0, 204, 255, 0.3)',
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -106,11 +106,11 @@ module.exports = {
     // for environment variables
     env: {LANG: 'ja_JP.UTF-8'},
 
-    // set to `false` for no bell
-    bell: 'SOUND',
+    // set to `false` for no bell set to SOUND for bell
+    bell: false,
 
     // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
-    copyOnSelect: true,
+    copyOnSelect: false,
 
     // if `true` (without backticks and without quotes), hyper will be set as the default protocol client for SSH
     defaultSSHApp: true,
@@ -123,17 +123,27 @@ module.exports = {
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+    // hyperline plugin config
+    hyperline: {                                                              
+      plugins: [ 
+        "hostname",                                                                
+        "ip",
+        "memory",                                                                    
+        "cpu",
+        "battery",
+        "network",                                                                
+      ]                                                                          
+    },
+  
   },
 
   // a list of plugins to fetch and install from npm
   // format: [@org/]project[#version]
-  // examples:
-  //   `hyperpower`
-  //   `@company/project`
-  //   `project#1.0.1`
   plugins: [
     //テーマ
     "hyperterm-material-dark",
+    // "hyper-material-theme",
     // 複数の画面に同時に入力可能にする
     "hyper-broadcast",
     // ターミナル内の文字列検索
@@ -141,7 +151,7 @@ module.exports = {
     // 新しいタブも同じ場所から開く
     "hypercwd",
     // ステータスを表示
-    "hyper-statusline",
+    "hyperline",
     // タブのアイコン
     "hyper-tab-icons",
   ],
@@ -155,4 +165,5 @@ module.exports = {
     // Example
     // 'window:devtools': 'cmd+alt+o',
   },
+
 };
