@@ -6,8 +6,10 @@ set -x XDG_CACHE_HOME $HOME/.cache
 set -x PATH $HOME/.ngrok $PATH
 
 # anyenv
-set -x PATH $HOME/.anyenv/bin $PATH
-eval (anyenv init - | source)
+if test -d $HOME/.anyenv
+    set -x PATH $HOME/.anyenv/bin $PATH
+    eval (anyenv init - | source)
+end
 
 # pipenv
 set -x PIPENV_VENV_IN_PROJECT true
