@@ -43,3 +43,6 @@ end
 # set -U GHQ_SELECTOR peco
 # 代わり
 alias g 'ghq look (ghq list | peco)'
+
+# fish bobthefish-theme config
+set -g theme_date_format "+20%y/%m/%d %H:%M"
