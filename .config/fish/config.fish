@@ -2,6 +2,10 @@
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 
+# Path
+set -x PATH $HOME/.ngrok $PATH
+
+# anyenv
 set -x PATH $HOME/.anyenv/bin $PATH
 eval (anyenv init - | source)
 
