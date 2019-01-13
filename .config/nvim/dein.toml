@@ -55,3 +55,7 @@ hook_add = '''
     nnoremap <silent> [figitive]b :<C-u>Gblame<CR>
     set diffopt+=vertical
 '''
+
+[[plugins]]
+repo = 'vim-scripts/sudo.vim'
+
