@@ -153,7 +153,7 @@ module.exports = {
     // ステータスを表示
     "hyperline",
     // タブのアイコン
-    "hyper-tab-icons",
+    "hyper-tab-icons-plus",
   ],
 
   // in development, you can create a directory under

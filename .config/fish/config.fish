@@ -4,6 +4,7 @@ set -x XDG_CACHE_HOME $HOME/.cache
 
 # Path
 set -x PATH $HOME/.ngrok $PATH
+set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
 
 # anyenv
 if test -d $HOME/.anyenv
@@ -32,6 +33,10 @@ alias als 'apt list'
 alias vi 'nvim'
 alias vim 'nvim'
 
+## alias kubernetes
+alias k 'kubectl'
+alias ky 'set -g theme_display_k8s_context yes'
+alias kn 'set -g theme_display_k8s_context no'
 
 #key-bindings
 function fish_user_key_bindings
@@ -46,3 +51,4 @@ alias g 'ghq look (ghq list | peco)'
 
 # fish bobthefish-theme config
 set -g theme_date_format "+20%y/%m/%d %H:%M"
+set -g theme_display_k8s_context no
