@@ -33,6 +33,10 @@ alias als 'apt list'
 alias vi 'nvim'
 alias vim 'nvim'
 
+## alias docker
+alias d 'docker'
+alias dc 'docker-compose'
+
 ## alias kubernetes
 alias k 'kubectl'
 alias ky 'set -g theme_display_k8s_context yes'
