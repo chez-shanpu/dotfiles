@@ -58,4 +58,3 @@ hook_add = '''
 
 [[plugins]]
 repo = 'vim-scripts/sudo.vim'
-

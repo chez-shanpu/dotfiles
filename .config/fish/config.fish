@@ -22,12 +22,15 @@ set -x PATH $HOME/go/bin $PATH
 # alias
 alias ls 'ls -a --color=auto'
 alias .. 'cd ..'
+alias md 'mkdir'
 
 ## alias apt
 alias aud 'sudo apt update'
+alias aug 'sudo apt upgrade'
 alias ain 'sudo apt install'
 alias ase 'apt search'
 alias als 'apt list'
+alias alu 'apt list --upgradable'
 
 ## alias nvim
 alias vi 'nvim'
