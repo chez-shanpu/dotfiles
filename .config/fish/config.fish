@@ -20,6 +20,7 @@ set -x GOPATH ~/go
 set -x PATH $HOME/go/bin $PATH
 
 # alias
+## alias common
 alias ls 'ls -a --color=auto'
 alias .. 'cd ..'
 alias md 'mkdir'
@@ -31,6 +32,9 @@ alias ain 'sudo apt install'
 alias ase 'apt search'
 alias als 'apt list'
 alias alu 'apt list --upgradable'
+
+## alias git
+alias g 'git'
 
 ## alias nvim
 alias vi 'nvim'
