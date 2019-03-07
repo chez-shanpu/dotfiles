@@ -46,8 +46,10 @@ alias dc 'docker-compose'
 
 ## alias kubernetes
 alias k 'kubectl'
-alias ky 'set -g theme_display_k8s_context yes'
-alias kn 'set -g theme_display_k8s_context no'
+alias kn 'kubens'
+alias kc 'kubectx'
+alias kcy 'set -g theme_display_k8s_context yes'
+alias kcn 'set -g theme_display_k8s_context no'
 
 #key-bindings
 function fish_user_key_bindings
