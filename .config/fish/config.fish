@@ -46,6 +46,9 @@ alias dc 'docker-compose'
 
 ## alias kubernetes
 alias k 'kubectl'
+alias ka 'kubectl apply'
+alias kg 'kubectl get'
+alias kd 'kubectl describe'
 alias kn 'kubens'
 alias kc 'kubectx'
 alias kcy 'set -g theme_display_k8s_context yes'
