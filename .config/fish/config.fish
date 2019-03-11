@@ -47,6 +47,7 @@ alias dc 'docker-compose'
 ## alias kubernetes
 alias k 'kubectl'
 alias ka 'kubectl apply'
+alias ke 'kubectl explain'
 alias kg 'kubectl get'
 alias kd 'kubectl describe'
 alias kn 'kubens'
