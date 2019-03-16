@@ -53,10 +53,13 @@ alias kd 'kubectl describe'
 alias kn 'kubens'
 alias kc 'kubectx'
 alias kcon 'kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort'
-
 ### alias kubernetes thema
 alias kcy 'set -g theme_display_k8s_context yes'
 alias kcn 'set -g theme_display_k8s_context no'
+
+## alias others
+alias p 'peco'
+alias l 'less'
 
 #key-bindings
 function fish_user_key_bindings
