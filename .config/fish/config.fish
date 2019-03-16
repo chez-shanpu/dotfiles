@@ -35,6 +35,8 @@ alias alu 'apt list --upgradable'
 
 ## alias git
 alias g 'git'
+alias gh 'hub'
+alias ghb 'hub browse'
 
 ## alias nvim
 alias vi 'nvim'
