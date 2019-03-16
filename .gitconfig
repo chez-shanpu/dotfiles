@@ -16,6 +16,8 @@
 	df = diff
     dfw = diff --word-diff	# 行ごとの差分じゃなくて，単語レベルでの差分を色付きで表示する
 	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+    lgst = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
+    lgmg = log --merges --pretty=format:'%C(yellow)%h %Cgreen%ci %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
     pl = pull
     pu = push
 	st = status
