@@ -5,6 +5,8 @@ set -x XDG_CACHE_HOME $HOME/.cache
 # Path
 set -x PATH $HOME/.ngrok $PATH
 set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
+##PythonPath
+set -x PYTHONPATH ./
 
 # anyenv
 if test -d $HOME/.anyenv
@@ -18,6 +20,7 @@ set -x PIPENV_VENV_IN_PROJECT true
 # go
 set -x GOPATH ~/go
 set -x PATH $HOME/go/bin $PATH
+set -x PATH $HOME/go/1.12.0/bin $PATH
 
 # alias
 ## alias common
@@ -55,6 +58,8 @@ alias kd 'kubectl describe'
 alias kn 'kubens'
 alias kc 'kubectx'
 alias kcon 'kubectl get pods --all-namespaces -o=jsonpath=\'{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}\' | sort'
+alias kcomdel 'kubectl get po | sed "1d" | grep -e Completed | cut -f 1 -d " " | xargs -I{} kubectl delete pod {}'
+alias kerrdel 'kubectl get po | sed "1d" | grep -e Error | cut -f 1 -d " " | xargs -I{} kubectl delete pod {}'
 ### alias kubernetes thema
 alias kcy 'set -g theme_display_k8s_context yes'
 alias kcn 'set -g theme_display_k8s_context no'
@@ -75,3 +80,6 @@ set -U GHQ_SELECTOR peco
 # fish bobthefish-theme config
 set -g theme_date_format "+20%y/%m/%d %H:%M"
 set -g theme_display_k8s_context no
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/shanpu/google-cloud-sdk/path.fish.inc' ]; . '/home/shanpu/google-cloud-sdk/path.fish.inc'; end
