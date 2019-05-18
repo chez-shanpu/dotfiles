@@ -11,7 +11,7 @@ set -x PYTHONPATH ./
 # anyenv
 if test -d $HOME/.anyenv
     set -x PATH $HOME/.anyenv/bin $PATH
-    eval (anyenv init - | source)
+    eval (anyenv init - fish | source)
 end
 
 # pipenv
@@ -24,7 +24,7 @@ set -x PATH $HOME/go/1.12.0/bin $PATH
 
 # alias
 ## alias common
-alias ls 'ls -a --color=auto'
+alias ls 'ls -a -G'
 alias .. 'cd ..'
 alias md 'mkdir'
 
