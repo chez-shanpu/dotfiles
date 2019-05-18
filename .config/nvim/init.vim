@@ -19,8 +19,8 @@ endif
 
 " ============== dein =================
 " Pythonインタプリタへのパスを指定
-let g:python3_host_prog = '/home/shanpu/.anyenv/envs/pyenv/shims/python3'
-let g:python_host_prog = '/home/shanpu/.anyenv/envs/pyenv/shims/python'
+let g:python3_host_prog = '/Users/shanpu/.anyenv/envs/pyenv/shims/python3'
+let g:python_host_prog = '/Users/shanpu/.anyenv/envs/pyenv/shims/python'
 
 
 " 各種ファイルへのパス
