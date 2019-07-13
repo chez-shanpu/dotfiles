@@ -21,6 +21,14 @@ set -x PIPENV_VENV_IN_PROJECT true
 set -x GOPATH ~/go
 set -x PATH $HOME/go/bin $PATH
 set -x PATH $HOME/go/1.12.0/bin $PATH
+set -x PATH $HOME/go/1.11.2/bin $PATH
+
+# gcloud sdk
+set -x CLOUDSDK_PYTHON $HOME/.anyenv/envs/pyenv/shims/python
+set -x CLOUDSDK_PYTHON_SITEPACKAGES 1
+
+# kubernetes
+set -x KUBE_EDITOR nvim
 
 # alias
 ## alias common
@@ -82,4 +90,4 @@ set -g theme_date_format "+20%y/%m/%d %H:%M"
 set -g theme_display_k8s_context no
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/shanpu/google-cloud-sdk/path.fish.inc' ]; . '/home/shanpu/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/shanpu/google-cloud-sdk/path.fish.inc' ]; . '/Users/shanpu/google-cloud-sdk/path.fish.inc'; end
