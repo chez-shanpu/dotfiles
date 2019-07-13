@@ -21,7 +21,8 @@
     lgmg = log --merges --pretty=format:'%C(yellow)%h %Cgreen%ci %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
     pl = pull
     pu = push
-	st = status
+    st = status
+    unstage = reset HEAD
 
 [url "github:"]
     pushInsteadOf = https://github.com/
