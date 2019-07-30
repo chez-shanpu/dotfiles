@@ -1,63 +1,50 @@
-# env vars
+## env vars
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 
-# Path
-set -x PATH $HOME/.ngrok $PATH
-set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
-##PythonPath
-set -x PYTHONPATH ./
+## Path
 
-# anyenv
+## anyenv
 if test -d $HOME/.anyenv
     set -x PATH $HOME/.anyenv/bin $PATH
-    eval (anyenv init - fish | source)
+#    eval (anyenv init - fish | source)
+    source (anyenv init - fish | psub)
 end
 
-# pipenv
+## pipenv
 set -x PIPENV_VENV_IN_PROJECT true
 
-# go
+## go
 set -x GOPATH ~/go
 set -x PATH $HOME/go/bin $PATH
-set -x PATH $HOME/go/1.12.0/bin $PATH
-set -x PATH $HOME/go/1.11.2/bin $PATH
 
-# gcloud sdk
+## gcloud sdk
 set -x CLOUDSDK_PYTHON $HOME/.anyenv/envs/pyenv/shims/python
 set -x CLOUDSDK_PYTHON_SITEPACKAGES 1
 
-# kubernetes
+## kubernetes
 set -x KUBE_EDITOR nvim
 
-# alias
-## alias common
+## alias
+### alias common
 alias ls 'ls -a -G'
 alias .. 'cd ..'
 alias md 'mkdir'
 
-## alias apt
-alias aud 'sudo apt update'
-alias aug 'sudo apt upgrade'
-alias ain 'sudo apt install'
-alias ase 'apt search'
-alias als 'apt list'
-alias alu 'apt list --upgradable'
-
-## alias git
+### alias git
 alias g 'git'
 alias gh 'hub'
 alias ghb 'hub browse'
 
-## alias nvim
+### alias nvim
 alias vi 'nvim'
 alias vim 'nvim'
 
-## alias docker
+### alias docker
 alias d 'docker'
 alias dc 'docker-compose'
 
-## alias kubernetes
+### alias kubernetes
 alias k 'kubectl'
 alias ka 'kubectl apply'
 alias ke 'kubectl explain'
@@ -72,7 +59,10 @@ alias kerrdel 'kubectl get po | sed "1d" | grep -e Error | cut -f 1 -d " " | xar
 alias kcy 'set -g theme_display_k8s_context yes'
 alias kcn 'set -g theme_display_k8s_context no'
 
-## alias others
+## kubectl plugin-manager krew
+set -gx PATH $PATH $HOME/.krew/bin
+
+### alias others
 alias p 'peco'
 alias l 'less'
 
@@ -85,9 +75,9 @@ end
 # fish plugin
 set -U GHQ_SELECTOR peco
 
-# fish bobthefish-theme config
+## fish bobthefish-theme config
 set -g theme_date_format "+20%y/%m/%d %H:%M"
 set -g theme_display_k8s_context no
 
-# The next line updates PATH for the Google Cloud SDK.
+## The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/shanpu/google-cloud-sdk/path.fish.inc' ]; . '/Users/shanpu/google-cloud-sdk/path.fish.inc'; end
