@@ -30,7 +30,6 @@ set -x KUBE_EDITOR nvim
 alias ls 'ls -a -G'
 alias .. 'cd ..'
 alias md 'mkdir'
-alias cat 'ccat'
 
 ### alias git
 alias g 'git'
