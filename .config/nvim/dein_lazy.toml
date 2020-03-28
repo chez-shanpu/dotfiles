@@ -16,6 +16,10 @@ on_ft = ['python']
 repo = 'cohama/lexima.vim'
 on_i = 1
 
+# === scala plugins ===
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on_ft = ['scala']
 
 # === go lang plugins ===
 [[plugins]]  

@@ -120,4 +120,12 @@
     "editor.renderControlCharacters": true,
     "editor.fontSize": 14,
     "editor.fontFamily": "'Ricty Diminished', Menlo, Monaco, 'Courier New', monospace",
+    "latex-workshop.message.update.show": false,
+    "files.autoSave": "onWindowChange",
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "window.zoomLevel": 0,
+    "todo-tree.tree.showScanModeButton": false,
+    "metals.javaHome": "/Users/shanpu/.jabba/jdk/adopt@1.11.0-6/Contents/Home",
 }

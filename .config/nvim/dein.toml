@@ -58,3 +58,8 @@ hook_add = '''
 
 [[plugins]]
 repo = 'vim-scripts/sudo.vim'
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
