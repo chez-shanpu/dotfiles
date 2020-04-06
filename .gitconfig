@@ -3,9 +3,8 @@
 	name = chez-shanpu
 
 [ghq]
-	root = ~/ghq
     root = ~/go/src
-    root = ~/go/1.10.1/src
+	root = ~/ghq
 
 [alias]
 	a = add

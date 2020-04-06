@@ -20,7 +20,6 @@ set -x PIPENV_VENV_IN_PROJECT true
 # go
 set -x GOPATH ~/go
 set -x PATH $HOME/go/bin $PATH
-set -x PATH $HOME/go/1.12.0/bin $PATH
 
 # alias
 ## alias common
@@ -43,7 +42,6 @@ alias ghb 'hub browse'
 
 ## alias nvim
 alias vi 'nvim'
-alias vim 'nvim'
 
 ## alias docker
 alias d 'docker'
