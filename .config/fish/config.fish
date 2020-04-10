@@ -27,7 +27,7 @@ alias ls 'ls -a --color=auto'
 alias .. 'cd ..'
 alias md 'mkdir'
 alias e 'exa'
-alias rm 'rmtrash'
+# alias rm 'rmtrash'
 
 ## alias apt
 alias aud 'sudo apt update'
