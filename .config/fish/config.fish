@@ -31,6 +31,7 @@ alias ls 'ls -a -G'
 alias .. 'cd ..'
 alias md 'mkdir'
 alias e 'exa'
+alias rm 'rmtrash'
 
 ### alias git
 alias g 'git'
