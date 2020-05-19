@@ -5,6 +5,7 @@ set -x XDG_CACHE_HOME $HOME/.cache
 # Path
 set -x PATH $HOME/.ngrok $PATH
 set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
+set -x PATH ~/.local/bin $PATH
 ##PythonPath
 set -x PYTHONPATH ./
 
