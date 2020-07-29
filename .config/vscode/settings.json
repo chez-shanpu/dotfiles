@@ -123,9 +123,11 @@
     "latex-workshop.message.update.show": false,
     "files.autoSave": "onWindowChange",
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
     "window.zoomLevel": 0,
     "todo-tree.tree.showScanModeButton": false,
     "metals.javaHome": "/Users/shanpu/.jabba/jdk/adopt@1.11.0-6/Contents/Home",
+    "pandoc.pdfOptString": "--filter pandoc-crossref -M \"crossrefYaml=$HOME/.pandoc/crossref/crossref_config.yaml\"  -V titlepage=true --pdf-engine=lualatex  -V documentclass=ltjsarticle --template eisvogel --listings -f markdown+hard_line_breaks -V CJKmainfont=IPAexGothic -H ~/.pandoc/header.tex",
+    "editor.formatOnPaste": true,
 }
