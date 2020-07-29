@@ -16,6 +16,11 @@ on_ft = ['python']
 repo = 'cohama/lexima.vim'
 on_i = 1
 
+# === toml plugins
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
 # === scala plugins ===
 [[plugins]]
 repo = 'derekwyatt/vim-scala'

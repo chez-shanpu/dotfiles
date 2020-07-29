@@ -7,6 +7,10 @@ set splitright         "画面を縦分割する際に右に開く
 set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
 
+set undofile                    " Persist undo tree across launches
+set undolevels=1000             " Maximum number of changes that can be undone
+set undoreload=10000            " Maximum number lines to save for undo on a buffer reload
+
 if has("autocmd")
   "ファイルタイプの検索を有効にする
   filetype plugin on
@@ -16,6 +20,8 @@ if has("autocmd")
   autocmd FileType yaml        setlocal sw=2 sts=2 ts=2 et
 endif
 
+" 引数無しでvimを起動したときにdefxを起動する
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Defx | endif
 
 " ============== dein =================
 " Pythonインタプリタへのパスを指定
