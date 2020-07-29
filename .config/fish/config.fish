@@ -1,6 +1,9 @@
-## env vars
+# env vars
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
+
+# direnv
+eval (direnv hook fish)
 
 ## Path
 
@@ -18,12 +21,18 @@ set -x PIPENV_VENV_IN_PROJECT true
 set -x GOPATH ~/go
 set -x PATH $HOME/go/bin $PATH
 
+# rust
+set -x PATH $HOME/.cargo/bin $PATH
+
 ## gcloud sdk
 set -x CLOUDSDK_PYTHON $HOME/.anyenv/envs/pyenv/shims/python
 set -x CLOUDSDK_PYTHON_SITEPACKAGES 1
 
 ## kubernetes
 set -x KUBE_EDITOR nvim
+
+## krew
+set -gx PATH $PATH $HOME/.krew/bin
 
 ## alias
 ### alias common
