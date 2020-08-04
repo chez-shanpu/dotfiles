@@ -23,6 +23,9 @@ endif
 " 引数無しでvimを起動したときにdefxを起動する
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Defx | endif
 
+" bufferのキーマップ
+nnoremap <silent> bp :bprev<CR>
+nnoremap <silent> bn :bnext<CR>
 
 " terminalモード内でのキーマップ
 " ESCでコマンド入力モードを解除
