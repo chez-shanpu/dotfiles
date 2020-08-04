@@ -27,33 +27,46 @@ repo = 'derekwyatt/vim-scala'
 on_ft = ['scala']
 
 # === go lang plugins ===
-[[plugins]]  
+[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_add = '''
     "  参考: https://github.com/hnakamur/vim-go-tutorial-ja
+
     " :nextなどでバッファ移動時にファイルが変更されていれば書き込む
     " :GoBuildするときにファイルを保存する必要がなくなる
     autocmd FileType go set autowrite
+
     " === VIM-GO COMMAND KEYBINDS ===
     autocmd FileType go nmap <leader>b  <Plug>(go-build) 
     autocmd FileType go nmap <leader>r <Plug>(go-run)
     autocmd FileType go nmap <leader>t <Plug>(go-test)
     autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+    autocmd FileType go nmap <Leader>i <Plug>(go-info)
+
     " === VIM-GO OPTIONS ===
+    " GoSameIdsClear 全てのカーソル位置の変数がハイライトされる
+    let g:go_auto_sameids = 1
+
     " GoRunの結果をsplitで表示 Default->"vsplit"
     let g:go_term_mode = "split"
+
     " :GoFmt時にimportのチェック Default->gofmt
     " ファイルが巨大だと保存時の:GoFmtが遅くなるので消しましょう
     let g:go_fmt_command = "goimports"
+
     " "コメントも関数の一部として扱われたくないときは0に設定する Default=>1
     " let g:go_textobj_include_function_doc = 0 
+
     " キャメルケースに変換(defalut snake_cake)
     let g:go_addtags_transform = "camelcase"
+
     " vimrcやinit.vimに以下を追加するとファイル保存時にGoLint、GoVet、GoErrCheckをまとめてしてくれる。
     let g:go_metalinter_autosave = 1
+
     " 自動保存時に走らせるLinterタイムアウト Default->"5s"
     " let g:go_metalinter_deadline = "5s"
+
     " === Others ===
     " GoInstallBinaries: vim-goに必要なツールのインストール(go get がバックグラウンドで動いて大変時間がかかる)
     " GoUpdateBinaries: GoInstallBinariesで落としたツールのアップデート
