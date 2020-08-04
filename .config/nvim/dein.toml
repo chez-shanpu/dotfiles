@@ -2,6 +2,19 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'vim-scripts/vim-auto-save'
+hook_add = '''
+    let g:auto_save = 1
+    let g:auto_save_no_updatetime = 1
+'''
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+    set updatetime=100
+'''
+
+[[plugins]]
 repo = 'Shougo/vimproc.vim'
 hook_post_update = '''
     if dein#util#_is_windows()
@@ -72,6 +85,7 @@ hook_add = '''
         nnoremap <silent><buffer><expr> o defx#do_action('open_or_close_tree')
         "" 終了
         nnoremap <silent><buffer><expr> q defx#do_action('quit')
+
         nnoremap <silent><buffer><expr> c defx#do_action('copy')
         nnoremap <silent><buffer><expr> m defx#do_action('move')
         nnoremap <silent><buffer><expr> p defx#do_action('paste')
@@ -135,7 +149,7 @@ hook_add = '''
     let g:airline#extensions#tabline#buffer_idx_mode = 1
     let g:airline#extensions#virtualenv#enabled = 1
     let g:airline#extensions#whitespace#mixed_indent_algo = 1 	
-''' 
+'''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
