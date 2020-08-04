@@ -42,8 +42,12 @@ hook_add = '''
     autocmd FileType go nmap <leader>r <Plug>(go-run)
     autocmd FileType go nmap <leader>t <Plug>(go-test)
     autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+    autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
     " === VIM-GO OPTIONS ===
+    " GoSameIdsClear 全てのカーソル位置の変数がハイライトされる
+    let g:go_auto_sameids = 1
+
     " GoRunの結果をsplitで表示 Default->"vsplit"
     let g:go_term_mode = "split"
 
