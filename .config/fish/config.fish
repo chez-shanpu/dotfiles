@@ -31,6 +31,9 @@ set -x CLOUDSDK_PYTHON_SITEPACKAGES 1
 ## kubernetes
 set -x KUBE_EDITOR nvim
 
+## kubebuilder
+set -x PATH /usr/local/kubebuilder/bin $PATH
+
 ## krew
 set -gx PATH $PATH $HOME/.krew/bin
 

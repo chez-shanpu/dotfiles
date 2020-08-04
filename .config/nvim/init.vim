@@ -23,6 +23,11 @@ endif
 " 引数無しでvimを起動したときにdefxを起動する
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Defx | endif
 
+
+" terminalモード内でのキーマップ
+" ESCでコマンド入力モードを解除
+tnoremap <silent> <ESC> <C-\><C-n>
+
 " ============== dein =================
 " Pythonインタプリタへのパスを指定
 let g:python3_host_prog = '/Users/shanpu/.anyenv/envs/pyenv/shims/python3'
