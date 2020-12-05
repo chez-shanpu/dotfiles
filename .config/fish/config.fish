@@ -28,6 +28,9 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x CLOUDSDK_PYTHON $HOME/.anyenv/envs/pyenv/shims/python
 set -x CLOUDSDK_PYTHON_SITEPACKAGES 1
 
+## locale
+set -x LC_CTYPE en_US.UTF-8
+
 ## kubernetes
 set -x KUBE_EDITOR nvim
 
@@ -39,16 +42,28 @@ set -gx PATH $PATH $HOME/.krew/bin
 
 ## alias
 ### alias common
-alias ls 'ls -a -G'
+#alias ls 'ls -a -G'
 alias .. 'cd ..'
 alias md 'mkdir'
 alias e 'exa'
 alias rm 'rmtrash'
 
+### alias exa
+if command -v exa
+    alias l="exa"
+    alias ls="exa --git"
+    alias la="exa --git -a"
+    alias ll="exa -lab --git"
+    alias tree="exa --tree"
+else
+    alias l="ls"
+    alias la="ls -a"
+    alias ll="ls -al"
+end
+
 ### alias git
 alias g 'git'
-alias gh 'hub'
-alias ghb 'hub browse'
+alias ghb 'gh repo view -w'
 
 ### alias nvim
 alias vi 'nvim'
