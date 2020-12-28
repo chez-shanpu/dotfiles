@@ -9,6 +9,9 @@ repo = 'Shougo/dein.vim'
 # '''
 
 [[plugins]]
+repo = '907th/vim-auto-save'
+
+[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
 
