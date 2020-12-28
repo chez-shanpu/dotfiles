@@ -9,6 +9,10 @@ repo = 'Shougo/dein.vim'
 # '''
 
 [[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
     set updatetime=100
