@@ -2,6 +2,9 @@
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 
+# direnv
+eval (direnv hook fish)
+
 # Path
 set -x PATH $HOME/.ngrok $PATH
 set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
@@ -22,13 +25,35 @@ set -x PIPENV_VENV_IN_PROJECT true
 set -x GOPATH ~/go
 set -x PATH $HOME/go/bin $PATH
 
+# rust
+set -x PATH $HOME/.cargo/bin $PATH
+
+# kubernetes
+set -x KUBE_EDITOR nvim
+## kubebuilder
+set -x PATH /usr/local/kubebuilder/bin $PATH
+## krew
+set -gx PATH $PATH $HOME/.krew/bin
+
 # alias
 ## alias common
 alias ls 'ls -a --color=auto'
 alias .. 'cd ..'
 alias md 'mkdir'
-alias e 'exa'
-# alias rm 'rmtrash'
+alias rm 'trash-put'
+
+### alias exa
+if command -v exa > /dev/null
+    alias l="exa"
+    alias ls="exa --git"
+    alias la="exa --git -a"
+    alias ll="exa -lab --git"
+    alias tree="exa --tree"
+else
+    alias l="ls"
+    alias la="ls -a"
+    alias ll="ls -al"
+end
 
 ## alias apt
 alias aud 'sudo apt update'
@@ -40,8 +65,7 @@ alias alu 'apt list --upgradable'
 
 ## alias git
 alias g 'git'
-alias gh 'hub'
-alias ghb 'hub browse'
+alias ghb 'gh repo view -w'
 
 ## alias nvim
 alias vi 'nvim'

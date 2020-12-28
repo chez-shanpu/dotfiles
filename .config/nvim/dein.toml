@@ -1,12 +1,16 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-#[[plugins]]
-#repo = 'vim-scripts/vim-auto-save'
-#hook_add = '''
-#    let g:auto_save = 1
-#    let g:auto_save_no_updatetime = 1
-#'''
+# [[plugins]]
+# repo = 'vim-scripts/vim-auto-save'
+# hook_add = '''
+#     let g:auto_save = 1
+#     let g:auto_save_no_updatetime = 1
+# '''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -149,7 +153,7 @@ hook_add = '''
     let g:airline#extensions#tabline#buffer_idx_mode = 1
     let g:airline#extensions#virtualenv#enabled = 1
     let g:airline#extensions#whitespace#mixed_indent_algo = 1 	
-'''
+''' 
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
