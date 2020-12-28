@@ -45,11 +45,10 @@ set -gx PATH $PATH $HOME/.krew/bin
 #alias ls 'ls -a -G'
 alias .. 'cd ..'
 alias md 'mkdir'
-alias e 'exa'
 alias rm 'rmtrash'
 
 ### alias exa
-if command -v exa
+if command -v exa > /dev/null
     alias l="exa"
     alias ls="exa --git"
     alias la="exa --git -a"
@@ -94,6 +93,10 @@ set -gx PATH $PATH $HOME/.krew/bin
 ### alias others
 alias p 'peco'
 alias l 'less'
+alias df 'duf'
+
+### alias python
+alias pip 'pip3'
 
 #key-bindings
 function fish_user_key_bindings
