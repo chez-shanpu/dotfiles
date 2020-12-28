@@ -15,4 +15,4 @@ ln -fs ${DOTFILES_ROOT}/.config/nvim/dein_lazy.toml ~/.config/nvim
 ln -fs ${DOTFILES_ROOT}/.config/nvim/init.vim ~/.config/nvim
 
 mkdir -p ~/.config/powerline
-cp -r ${DOTFILES_ROOT}/.config/powerline ~/.config/powerline
+cp -r ${DOTFILES_ROOT}/.config/powerline ~/.config/
