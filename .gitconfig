@@ -21,6 +21,7 @@
     pl = pull
     pu = push
 	st = status
+    unstage = reset HEAD
 
 [url "github:"]
     pushInsteadOf = https://github.com/
