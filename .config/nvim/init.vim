@@ -15,7 +15,7 @@ if has("autocmd")
   "ファイルタイプの検索を有効にする
   filetype plugin on
   "ファイルタイプに合わせたインデントを利用
-  "filetype indent on
+  filetype indent on
   
   "sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
   autocmd FileType yaml        setlocal sw=2 sts=2 ts=2 et
@@ -39,7 +39,7 @@ let g:coc_global_extensions = ['coc-marketplace', 'coc-highlight', 'coc-go']
 
 " ============== dein =================
 " Pythonインタプリタへのパスを指定
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 let g:python_host_prog = '/usr/bin/python'
 
 
@@ -86,8 +86,8 @@ endif
 
 " update plugins
 "call dein#update()
-let g:dein#install_github_api_token = expand('$GITHUB_TOKEN')
-call dein#check_update(v:true)
+"let g:dein#install_github_api_token = expand('$GITHUB_TOKEN')
+"call dein#check_update(v:true)
 
 "End dein Scripts-------------------------
 
@@ -104,14 +104,14 @@ set background=dark
 colorscheme hybrid
 
 "nvim-treesitter config--------------------
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true, -- これを設定することでtree-sitterによるインデントを有効にできます
-  },
-  ensure_installed = 'maintained',
-}
-EOF
+"lua <<EOF
+"require'nvim-treesitter.configs'.setup {
+"  highlight = {
+"    enable = true,
+"  },
+"  indent = {
+"    enable = true, -- これを設定することでtree-sitterによるインデントを有効にできます
+"  },
+"  ensure_installed = 'maintained',
+"}
+"EOF
