@@ -3,7 +3,7 @@ set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 
 # direnv
-eval (direnv hook fish)
+# eval (direnv hook fish)
 
 # Path
 set -x PATH $HOME/.ngrok $PATH
@@ -88,6 +88,9 @@ alias kerrdel 'kubectl get po | sed "1d" | grep -e Error | cut -f 1 -d " " | xar
 ### alias kubernetes thema
 alias kcy 'set -g theme_display_k8s_context yes'
 alias kcn 'set -g theme_display_k8s_context no'
+
+## alias python
+alias pip 'pip3'
 
 ## alias others
 alias p 'peco'
