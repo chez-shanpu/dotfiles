@@ -3,7 +3,9 @@ set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 
 # direnv
-# eval (direnv hook fish)
+if command -v direnv > /dev/null
+    eval (direnv hook fish)
+end
 
 # Path
 set -x PATH $HOME/.ngrok $PATH
@@ -53,6 +55,17 @@ else
     alias l="ls"
     alias la="ls -a"
     alias ll="ls -al"
+end
+
+### alias bat
+if command -v bat > /dev/null
+    alias cat="bat --plain"
+end
+
+### alias procs
+if command -v procs > /dev/null
+    alias ps="procs"
+    alias pst="procs --tree"
 end
 
 ## alias apt
