@@ -7,7 +7,7 @@ ln -fs ${DOTFILES_ROOT}/.tmux.conf ~
 mkdir -p ~/.config/fish
 ln -fs ${DOTFILES_ROOT}/.config/fish/config.fish ~/.config/fish/
 ln -fs ${DOTFILES_ROOT}/.config/fish/fish_variables ~/.config/fish/
-ln -fs ${DOTFILES_ROOT}/.config/fish/fishfile ~/.config/fish/
+ln -fs ${DOTFILES_ROOT}/.config/fish/fish_plugins ~/.config/fish/
 
 mkdir -p ~/.config/nvim
 ln -fs ${DOTFILES_ROOT}/.config/nvim/dein.toml ~/.config/nvim
