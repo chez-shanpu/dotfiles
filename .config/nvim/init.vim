@@ -34,7 +34,7 @@ nnoremap <silent> bn :bnext<CR>
 tnoremap <silent> <ESC> <C-\><C-n>
 
 " Coc extensions
-let g:coc_global_extensions = ['coc-marketplace', 'coc-highlight', 'coc-go']
+let g:coc_global_extensions = ['coc-marketplace', 'coc-highlight', 'coc-go', 'coc-python']
 
 " autosave plugin
  let g:auto_save = 1

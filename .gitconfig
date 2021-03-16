@@ -2,6 +2,8 @@
 	email = cheztomo513@gmail.com
 	name = chez-shanpu
 
+[pull]
+    rebase = false
 [ghq]
     root = ~/go/src
     root = ~/ghq

@@ -45,6 +45,20 @@
           "args": [
             "-f", "-gg", "-pv", "-lualatex", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"
           ]
+        },
+        {
+          "name": "Latexmk (pdfLaTex)",
+          "command": "latexmk",
+          "args": [
+            "-f",
+            "-gg",
+            "-pv",
+            "-pdf",
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOC%"
+          ]
         }
     ],
 
@@ -77,6 +91,12 @@
           "tools": [
             "Latexmk (LuaLaTeX)"
           ]
+        },
+        {
+          "name": "pdfLaTeX",
+          "tools": [
+            "Latexmk (pdfLaTex)"
+          ]
         }
     ],
 
@@ -94,7 +114,7 @@
     // 一時ファイルの影響で、修正後のビルドに失敗してしまう事がよくある。そのため、一時的なファイルを
     // 削除する機能 (クリーンアップ) が LaTeX Workshop には備わっている。
     "latex-workshop.latex.clean.fileTypes": [
-        "*.aux","*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log", "*.fdb_latexmk", "*.synctex.gz",
+        "*.aux","*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.fdb_latexmk", "*.synctex.gz",
         // for Beamer files
         "_minted*", "*.nav", "*.snm", "*.vrb",
     ],
@@ -106,16 +126,11 @@
     // この PDF ビュアーは LaTeX のビルドによって更新されると同期して内容を更新してくれる。
     "latex-workshop.view.pdf.viewer": "tab",
 
-    // latex-workshop.latex.clean.onFailBuild.enabled: ビルド失敗時に一時ファイルのクリーンアップを行うかどうか
-    "latex-workshop.latex.clean.onFailBuild.enabled": true,
-
-    // latex-workshop.latex.autoBuild.onSave.enabled: .tex ファイルの保存時に自動的にビルドを行うかどうか
-    "latex-workshop.latex.autoBuild.onSave.enabled": true,
-
     "latex-workshop.latex.recipe.default": "lastUsed",
 
     "explorer.confirmDelete": false,
-    "latex-workshop.latex.autoClean.run": "onFailed",
+    // "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.latex.autoBuild.run": "onFileChange",
     "editor.renderControlCharacters": true,
     "editor.fontSize": 14,
@@ -124,10 +139,15 @@
     "files.autoSave": "afterDelay",
     "editor.wordWrap": "on",
     "workbench.colorTheme": "One Dark Pro",
-    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "workbench.iconTheme": "vscode-icons",
     "window.zoomLevel": 0,
     "todo-tree.tree.showScanModeButton": false,
     "metals.javaHome": "/Users/shanpu/.jabba/jdk/adopt@1.11.0-6/Contents/Home",
     "pandoc.pdfOptString": "--filter pandoc-crossref -M \"crossrefYaml=$HOME/.pandoc/crossref/crossref_config.yaml\"  -V titlepage=true --pdf-engine=lualatex  -V documentclass=ltjsarticle --template eisvogel --listings -f markdown+hard_line_breaks -V CJKmainfont=IPAexGothic -H ~/.pandoc/header.tex",
     "editor.formatOnPaste": true,
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.letterSpacing": 1,
+    "terminal.integrated.fontWeightBold": "bold",
+    "terminal.integrated.fontWeight": "normal",
+    "terminal.integrated.fontSize": 14,
 }
