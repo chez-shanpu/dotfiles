@@ -49,6 +49,11 @@ alias .. 'cd ..'
 alias md 'mkdir'
 alias rm 'rmtrash'
 
+### alias bottom
+if command -v btm > /dev/null
+    alias top="btm --color gruvbox --tree"
+end
+
 ### alias exa
 if command -v exa > /dev/null
     alias l="exa"
