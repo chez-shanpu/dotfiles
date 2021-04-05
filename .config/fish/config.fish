@@ -47,7 +47,10 @@ set -gx PATH $PATH $HOME/.krew/bin
 #alias ls 'ls -a -G'
 alias .. 'cd ..'
 alias md 'mkdir'
-alias rm 'rmtrash'
+
+if command -v rmtrash > /dev/null
+    alias rm 'rmtrash'
+end
 
 ### alias bottom
 if command -v btm > /dev/null
