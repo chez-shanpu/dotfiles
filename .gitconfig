@@ -1,10 +1,29 @@
 [user]
-	email = cheztomo513@gmail.com
+	email = tomoki.sugiura@mail.shanpu.info
 	name = chez-shanpu
 
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[delta]
+    line-numbers = true
+    side-by-side = true
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[pull]
+    rebase = false
 [ghq]
     root = ~/go/src
-	root = ~/ghq
+    root = ~/ghq
 
 [alias]
 	a = add
@@ -20,9 +39,15 @@
     lgmg = log --merges --pretty=format:'%C(yellow)%h %Cgreen%ci %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
     pl = pull
     pu = push
-	st = status
+    st = status
     unstage = reset HEAD
 
 [url "github:"]
     pushInsteadOf = https://github.com/
     pushInsteadOf = git@github.com:
+
+[core]
+	editor = nvim
+
+[init]
+	defaultBranch = main

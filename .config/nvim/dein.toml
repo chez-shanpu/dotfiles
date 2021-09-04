@@ -8,9 +8,12 @@ repo = 'Shougo/dein.vim'
 #     let g:auto_save_no_updatetime = 1
 # '''
 
-#[[plugins]]
-#repo = 'nvim-treesitter/nvim-treesitter'
-#merged = 0
+[[plugins]]
+repo = '907th/vim-auto-save'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'

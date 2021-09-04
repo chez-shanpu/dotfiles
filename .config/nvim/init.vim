@@ -104,14 +104,14 @@ set background=dark
 colorscheme hybrid
 
 "nvim-treesitter config--------------------
-"lua <<EOF
-"require'nvim-treesitter.configs'.setup {
-"  highlight = {
-"    enable = true,
-"  },
-"  indent = {
-"    enable = true, -- これを設定することでtree-sitterによるインデントを有効にできます
-"  },
-"  ensure_installed = 'maintained',
-"}
-"EOF
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true, -- これを設定することでtree-sitterによるインデントを有効にできます
+  },
+  ensure_installed = 'maintained',
+}
+EOF

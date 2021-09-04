@@ -6,6 +6,8 @@ ln -fs ${DOTFILES_ROOT}/.tmux.conf ~
 
 mkdir -p ~/.config/fish
 ln -fs ${DOTFILES_ROOT}/.config/fish/config.fish ~/.config/fish/
+ln -fs ${DOTFILES_ROOT}/.config/fish/darwin.fish ~/.config/fish/
+ln -fs ${DOTFILES_ROOT}/.config/fish/linux.fish ~/.config/fish/
 ln -fs ${DOTFILES_ROOT}/.config/fish/fish_variables ~/.config/fish/
 ln -fs ${DOTFILES_ROOT}/.config/fish/fish_plugins ~/.config/fish/
 
@@ -16,3 +18,6 @@ ln -fs ${DOTFILES_ROOT}/.config/nvim/init.vim ~/.config/nvim
 
 mkdir -p ~/.config/powerline
 cp -r ${DOTFILES_ROOT}/.config/powerline ~/.config/
+
+mkdir -p ~/.config/karabiner
+ln -fs ${DOTFILES_ROOT}/.config/karabiner/karabiner.json ~/.config/karabiner
