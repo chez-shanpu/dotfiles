@@ -1,3 +1,10 @@
+switch (uname)
+case Linux
+    source $HOME/.config/fish/linux.fish
+case Darwin
+    source $HOME/.config/fish/darwin.fish
+end
+
 # env vars
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
@@ -49,10 +56,6 @@ source /usr/local/opt/asdf/libexec/asdf.fish
 alias .. 'cd ..'
 alias md 'mkdir'
 
-if command -v rmtrash > /dev/null
-    alias rm 'rmtrash'
-end
-
 ### alias bottom
 if command -v btm > /dev/null
     alias top="btm --color gruvbox --tree"
@@ -88,7 +91,6 @@ alias ghb 'gh repo view -w'
 
 ### alias nvim
 alias vi 'nvim'
-alias vim 'nvim'
 
 ### alias docker
 alias d 'docker'
@@ -116,9 +118,6 @@ set -gx PATH $PATH $HOME/.krew/bin
 alias p 'peco'
 alias l 'less'
 alias df 'duf'
-
-### alias python
-alias pip 'pip3'
 
 #key-bindings
 function fish_user_key_bindings
