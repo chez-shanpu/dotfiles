@@ -15,7 +15,7 @@ if has("autocmd")
   "ファイルタイプの検索を有効にする
   filetype plugin on
   "ファイルタイプに合わせたインデントを利用
-  filetype indent on
+  "filetype indent on
   
   "sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
   autocmd FileType yaml        setlocal sw=2 sts=2 ts=2 et
@@ -34,12 +34,15 @@ nnoremap <silent> bn :bnext<CR>
 tnoremap <silent> <ESC> <C-\><C-n>
 
 " Coc extensions
-let g:coc_global_extensions = ['coc-marketplace', 'coc-highlight', 'coc-go']
+let g:coc_global_extensions = ['coc-marketplace', 'coc-highlight', 'coc-go', 'coc-python']
+
+" autosave plugin
+ let g:auto_save = 1
 
 
 " ============== dein =================
 " Pythonインタプリタへのパスを指定
-let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
+let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python'
 
 
@@ -85,9 +88,8 @@ if dein#check_install()
 endif
 
 " update plugins
-"call dein#update()
-"let g:dein#install_github_api_token = expand('$GITHUB_TOKEN')
-"call dein#check_update(v:true)
+let g:dein#install_github_api_token = expand('$GITHUB_TOKEN')
+call dein#check_update(v:true)
 
 "End dein Scripts-------------------------
 

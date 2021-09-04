@@ -14,6 +14,7 @@ repo = '907th/vim-auto-save'
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
+hook_post_update = 'TSUpdate'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -92,7 +93,6 @@ hook_add = '''
         nnoremap <silent><buffer><expr> o defx#do_action('open_or_close_tree')
         "" 終了
         nnoremap <silent><buffer><expr> q defx#do_action('quit')
-
         nnoremap <silent><buffer><expr> c defx#do_action('copy')
         nnoremap <silent><buffer><expr> m defx#do_action('move')
         nnoremap <silent><buffer><expr> p defx#do_action('paste')
