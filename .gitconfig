@@ -2,6 +2,23 @@
 	email = cheztomo513@gmail.com
 	name = chez-shanpu
 
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[delta]
+    line-numbers = true
+    side-by-side = true
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+
+[interactive]
+    diffFilter = delta --color-only
+
 [pull]
     rebase = false
 [ghq]
@@ -28,5 +45,9 @@
 [url "github:"]
     pushInsteadOf = https://github.com/
     pushInsteadOf = git@github.com:
+
 [core]
 	editor = nvim
+
+[init]
+	defaultBranch = main

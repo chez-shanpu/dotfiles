@@ -7,8 +7,6 @@ if command -v direnv > /dev/null
     eval (direnv hook fish)
 end
 
-## Path
-
 ## anyenv
 if test -d $HOME/.anyenv
     set -x PATH $HOME/.anyenv/bin $PATH
@@ -42,6 +40,9 @@ set -x PATH /usr/local/kubebuilder/bin $PATH
 ## krew
 set -gx PATH $PATH $HOME/.krew/bin
 
+## asdf
+source /usr/local/opt/asdf/libexec/asdf.fish
+
 ## alias
 ### alias common
 #alias ls 'ls -a -G'
@@ -59,11 +60,11 @@ end
 
 ### alias exa
 if command -v exa > /dev/null
-    alias l="exa"
-    alias ls="exa --git"
-    alias la="exa --git -a"
-    alias ll="exa -lab --git"
-    alias tree="exa --tree"
+    alias l="exa --icons"
+    alias ls="exa --git --icons"
+    alias la="exa --git -a --icons"
+    alias ll="exa -lab --git --icons"
+    alias tree="exa --tree --icons"
 else
     alias l="ls"
     alias la="ls -a"
@@ -133,4 +134,4 @@ set -g theme_date_format "+20%y/%m/%d %H:%M"
 set -g theme_display_k8s_context no
 
 ## The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/shanpu/google-cloud-sdk/path.fish.inc' ]; . '/Users/shanpu/google-cloud-sdk/path.fish.inc'; end
+if [ -f '~/google-cloud-sdk/path.fish.inc' ]; . '~/google-cloud-sdk/path.fish.inc'; end

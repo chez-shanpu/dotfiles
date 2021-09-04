@@ -16,6 +16,16 @@
 repo = 'cohama/lexima.vim'
 on_i = 1
 
+# === markdown plugins ===
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app && yarn install"'
+
 # === toml plugins
 [[plugins]]
 repo = 'cespare/vim-toml'
