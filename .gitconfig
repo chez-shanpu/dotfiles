@@ -1,6 +1,7 @@
 [user]
 	email = tomoki.sugiura@mail.shanpu.info
 	name = chez-shanpu
+	signingkey = DE23EC534FD64A5D
 
 [pager]
     diff = delta
@@ -54,3 +55,7 @@
 
 [init]
 	defaultBranch = main
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
