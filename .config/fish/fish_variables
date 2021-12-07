@@ -6,10 +6,11 @@ SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_decors_2F_fish_2D_ghq_files:/Users/shanpu/\x2econfig/fish/functions/__ghq_repository_search\x2efish\x1e/Users/shanpu/\x2econfig/fish/conf\x2ed/ghq_key_bindings\x2efish\x1e/Users/shanpu/\x2econfig/fish/completions/ghq\x2efish
+SETUVAR _fisher_edc_2F_bass_files:/Users/shanpu/\x2econfig/fish/functions/__bass\x2epy\x1e/Users/shanpu/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_evanlucas_2F_fish_2D_kubectl_2D_completions_files:/Users/shanpu/\x2econfig/fish/completions/kubectl\x2efish
 SETUVAR _fisher_oh_2D_my_2D_fish_2F_plugin_2D_peco_files:/Users/shanpu/\x2econfig/fish/functions/peco_kill\x2efish\x1e/Users/shanpu/\x2econfig/fish/functions/peco_select_history\x2efish
 SETUVAR _fisher_oh_2D_my_2D_fish_2F_theme_2D_bobthefish_files:/Users/shanpu/\x2econfig/fish/functions/__bobthefish_colors\x2efish\x1e/Users/shanpu/\x2econfig/fish/functions/__bobthefish_display_colors\x2efish\x1e/Users/shanpu/\x2econfig/fish/functions/__bobthefish_glyphs\x2efish\x1e/Users/shanpu/\x2econfig/fish/functions/bobthefish_display_colors\x2efish\x1e/Users/shanpu/\x2econfig/fish/functions/fish_greeting\x2efish\x1e/Users/shanpu/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e/Users/shanpu/\x2econfig/fish/functions/fish_prompt\x2efish\x1e/Users/shanpu/\x2econfig/fish/functions/fish_right_prompt\x2efish\x1e/Users/shanpu/\x2econfig/fish/functions/fish_title\x2efish
-SETUVAR _fisher_plugins:oh\x2dmy\x2dfish/theme\x2dbobthefish\x1eoh\x2dmy\x2dfish/plugin\x2dpeco\x1edecors/fish\x2dghq\x1eevanlucas/fish\x2dkubectl\x2dcompletions
+SETUVAR _fisher_plugins:oh\x2dmy\x2dfish/theme\x2dbobthefish\x1eoh\x2dmy\x2dfish/plugin\x2dpeco\x1edecors/fish\x2dghq\x1eevanlucas/fish\x2dkubectl\x2dcompletions\x1eedc/bass
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:\x2d\x2dbold
