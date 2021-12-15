@@ -6,6 +6,9 @@ case Darwin
 end
 
 
+# GPG
+set -x GPG_TTY (tty)
+
 # locale
 set -x LC_CTYPE en_US.UTF-8
 
