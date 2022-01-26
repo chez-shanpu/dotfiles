@@ -29,6 +29,7 @@ build = 'sh -c "cd app && yarn install"'
 # === toml plugins
 [[plugins]]
 repo = 'cespare/vim-toml'
+rev = 'main'
 on_ft = ['toml']
 
 # === scala plugins ===

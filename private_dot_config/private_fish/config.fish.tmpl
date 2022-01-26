@@ -1,10 +1,28 @@
-switch (uname)
-case Linux
-    source $HOME/.config/fish/linux.fish
-case Darwin
-    source $HOME/.config/fish/darwin.fish
+{{ if (eq .chezmoi.os "darwin") }}
+# alias
+if command -v rmtrash > /dev/null
+    alias rm 'rmtrash'
+    alias rm 'rm -rf'
 end
 
+if command -v gsed > /dev/null
+    alias sed 'gsed'
+end
+
+{{ else if (eq .chezmoi.os "linux" ) }}
+# PATH
+set -x PATH $HOME/.ngrok $PATH
+set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
+set -x PATH ~/.local/bin $PATH
+
+# alias
+alias ls 'ls -a --color=auto'
+alias rm 'trash-put'
+
+{{ end }}
+
+
+set -x EDITOR nvim
 
 # GPG
 set -x GPG_TTY (tty)
