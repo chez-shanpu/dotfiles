@@ -1,0 +1,40 @@
+########## vars ##########
+{{- $email := "" -}}
+{{- if hasKey . "email" -}}
+{{-   $email = .email -}}
+{{- else -}}
+{{-   $email = promptString "Email for git" -}}
+{{- end -}}
+
+{{- $git_signingkey := "" -}}
+{{- if hasKey . "git_signingkey" -}}
+{{-   $git_signingkey = .git_signingkey -}}
+{{- else -}}
+{{-   $git_signingkey = promptString "GPG key for git" -}}
+{{- end -}}
+
+{{- $homebrew_github_token := "" -}}
+{{- if hasKey . "homebrew_github_token" -}}
+{{-   $homebrew_github_token = .homebrew_github_token -}}
+{{- else -}}
+{{-   $homebrew_github_token = promptString "GitHub token for homebrew" -}}
+{{- end -}}
+
+########## encryption settings ##########
+encryption = "age"
+
+[age]
+    identity = "{{ .chezmoi.homeDir }}/chezmoi.key"
+    recipient = "age103gtxahm6tm29vpuu9t00yum2zgxrm33nyf5egvmal8pgtdgavjszejkem"
+
+########## data ##########
+[data]
+    email = {{ $email | quote }}
+
+    # git
+    git_name = "chez-shanpu"
+    git_signingkey = {{ $git_signingkey | quote }}
+
+    # brew
+    homebrew_github_token = {{ $homebrew_github_token | quote }}
+

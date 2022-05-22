@@ -42,8 +42,20 @@ let g:coc_global_extensions = ['coc-marketplace', 'coc-highlight', 'coc-go', 'co
 
 " ============== dein =================
 " Pythonインタプリタへのパスを指定
+{{ if (eq .chezmoi.os "linux" ) }}
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python'
+{{ end }}
+
+{{ if (eq .chezmoi.os "darwin" ) }}
+{{ if (eq .chezmoi.arch "amd64" ) }}
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python3'
+{{ else if (eq .chezmoi.arch "arm64" ) }}
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
+let g:python_host_prog = '/opt/homebrew/bin/python3'
+{{ end }}
+{{ end }}
 
 
 " 各種ファイルへのパス
@@ -114,6 +126,7 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true, -- これを設定することでtree-sitterによるインデントを有効にできます
   },
-  ensure_installed = 'maintained',
+  ensure_installed = 'all',
+  ignore_install = { "phpdoc" },
 }
 EOF
