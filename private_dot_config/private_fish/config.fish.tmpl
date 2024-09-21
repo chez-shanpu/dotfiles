@@ -32,6 +32,7 @@ set -x LC_CTYPE en_US.UTF-8
 set -x PATH $HOME/.ngrok $PATH
 set -x PATH ~/.local/bin $PATH
 {{ end }}
+set -x PATH $HOME/bin $PATH
 
 
 ########## Homebrew ##########
@@ -93,7 +94,11 @@ set -gx PATH $PATH $HOME/.krew/bin
 
 
 ########## asdf ##########
+{{ if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64")) }}
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
+{{ else }}
 source /usr/local/opt/asdf/libexec/asdf.fish
+{{ end }}
 
 
 ########## alias ##########
