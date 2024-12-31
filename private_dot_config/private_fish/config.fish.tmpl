@@ -129,13 +129,13 @@ if command -v btm > /dev/null
     alias top="btm --color gruvbox --tree"
 end
 
-# exa
-if command -v exa > /dev/null
-    alias l="exa --icons"
-    alias ls="exa --git --icons"
-    alias la="exa --git -a --icons"
-    alias ll="exa -lab --git --icons"
-    alias tree="exa --tree --icons"
+# eza
+if command -v eza > /dev/null
+    alias l="eza"
+    alias ls="eza"
+    alias la="eza -a"
+    alias ll="eza --long"
+    alias tree="eza --tree --level 3"
 else
     alias l="ls"
     alias la="ls -a"
