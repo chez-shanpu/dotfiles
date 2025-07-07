@@ -1,2 +1,3 @@
 # dotfiles
-設定ファイルを寄せ集めたもの
+
+Personal configuration files managed with chezmoi
