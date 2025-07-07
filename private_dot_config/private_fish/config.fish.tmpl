@@ -69,10 +69,14 @@ if test -d $HOME/.anyenv
     source (anyenv init - fish | psub)
 end
 
+########## fzf ##########
+set -x FZF_DEFAULT_OPTS "--height 40% --reverse --border"
 
 ########## pipenv ##########
 set -x PIPENV_VENV_IN_PROJECT true
 
+########## Aqua ##########
+set -x PATH $(aqua root-dir)/bin $PATH
 
 ########## go ##########
 set -x GOPATH ~/go
@@ -102,10 +106,7 @@ source /usr/local/opt/asdf/libexec/asdf.fish
 
 
 ########## alias ##########
-alias .. 'cd ..'
-alias md 'mkdir'
-alias p 'peco'
-alias l 'less'
+alias cc 'claude -c'
 
 {{ if (eq .chezmoi.os "darwin") }}
 if command -v gsed > /dev/null
@@ -176,3 +177,7 @@ alias kerrdel 'kubectl get po | sed "1d" | grep -e Error | cut -f 1 -d " " | xar
 ########## Gcloud ##########
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '~/google-cloud-sdk/path.fish.inc' ]; . '~/google-cloud-sdk/path.fish.inc'; end
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "$HOME/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
