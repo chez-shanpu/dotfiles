@@ -1,25 +1,3 @@
-########## vars ##########
-{{- $email := "" -}}
-{{- if hasKey . "email" -}}
-{{-   $email = .email -}}
-{{- else -}}
-{{-   $email = promptString "Email for git" -}}
-{{- end -}}
-
-{{- $git_signingkey := "" -}}
-{{- if hasKey . "git_signingkey" -}}
-{{-   $git_signingkey = .git_signingkey -}}
-{{- else -}}
-{{-   $git_signingkey = promptString "GPG key for git" -}}
-{{- end -}}
-
-{{- $homebrew_github_token := "" -}}
-{{- if hasKey . "homebrew_github_token" -}}
-{{-   $homebrew_github_token = .homebrew_github_token -}}
-{{- else -}}
-{{-   $homebrew_github_token = promptString "GitHub token for homebrew" -}}
-{{- end -}}
-
 ########## encryption settings ##########
 encryption = "age"
 
@@ -29,12 +7,12 @@ encryption = "age"
 
 ########## data ##########
 [data]
-    email = {{ $email | quote }}
+    email = {{ default "tomoki.sugiura@mail.shanpu.info" (env "CHEZMOI_EMAIL") | quote }}
 
     # git
-    git_name = "chez-shanpu"
-    git_signingkey = {{ $git_signingkey | quote }}
+    git_name = {{ default "chez-shanpu" (env "CHEZMOI_GIT_NAME") | quote }}
+    git_signingkey = {{ default "" (env "CHEZMOI_GIT_SIGNINGKEY") | quote }}
 
     # brew
-    homebrew_github_token = {{ $homebrew_github_token | quote }}
+    homebrew_github_token = {{ default "" (env "CHEZMOI_HOMEBREW_GITHUB_TOKEN") | quote }}
 
