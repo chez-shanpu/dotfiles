@@ -28,27 +28,27 @@ set -x LC_CTYPE en_US.UTF-8
 
 
 ########## PATH ##########
-{{ if (eq .chezmoi.os "linux" ) }}
+{{- if (eq .chezmoi.os "linux" ) }}
 set -x PATH $HOME/.ngrok $PATH
 set -x PATH ~/.local/bin $PATH
-{{ end }}
+{{- end }}
 set -x PATH $HOME/bin $PATH
 
 
 ########## Homebrew ##########
 set -x HOMEBREW_GITHUB_API_TOKEN {{ .homebrew_github_token }}
 
-{{ if (eq .chezmoi.os "linux" ) }}
+{{- if (eq .chezmoi.os "linux" ) }}
 set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
-{{ end }}
+{{- end }}
 
-{{ if (eq .chezmoi.os "darwin" ) }}
-{{ if (eq .chezmoi.arch "amd64" ) }}
+{{- if (eq .chezmoi.os "darwin" ) }}
+{{- if (eq .chezmoi.arch "amd64" ) }}
 eval "$(/usr/local/bin/brew shellenv)"
-{{ else if (eq .chezmoi.arch "arm64" ) }}
+{{- else if (eq .chezmoi.arch "arm64" ) }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
-{{ end }}
-{{ end }}
+{{- end }}
+{{- end }}
 
 
 ########## Env Vars ##########
@@ -98,32 +98,26 @@ set -gx PATH $PATH $HOME/.krew/bin
 
 
 ########## asdf ##########
-{{ if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64")) }}
+{{- if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64")) }}
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
-{{ else }}
+{{- else }}
 source /usr/local/opt/asdf/libexec/asdf.fish
-{{ end }}
+{{- end }}
 
 
 ########## alias ##########
 alias cc 'claude -c'
 
-{{ if (eq .chezmoi.os "darwin") }}
+{{- if (eq .chezmoi.os "darwin") }}
+alias rm 'trash'
 if command -v gsed > /dev/null
     alias sed 'gsed'
 end
-{{ end }}
+{{- end }}
 
-{{ if (eq .chezmoi.os "linux" ) }}
+{{- if (eq .chezmoi.os "linux" ) }}
 alias ls 'ls -a --color=auto'
-alias rm 'trash-put'
-{{ end }}
-
-# trash
-if command -v rmtrash > /dev/null
-    alias rm 'rmtrash'
-    alias rm 'rm -rf'
-end
+{{- end }}
 
 # bottom
 if command -v btm > /dev/null
