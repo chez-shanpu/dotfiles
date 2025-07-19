@@ -1,0 +1,3 @@
+-- キーマップはVeryLazyイベントで自動的に読み込まれる
+-- 常に設定されるデフォルトのキーマップ: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- ここに追加のキーマップを記述
