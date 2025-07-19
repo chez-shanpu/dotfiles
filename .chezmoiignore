@@ -2,7 +2,7 @@ README.md
 .gitignore
 xkeysnail
 
-{{ if ne .chezmoi.os "darwin" }}
+{{- if ne .chezmoi.os "darwin" }}
 private_dot_config/private_karabiner
-{{ end }}
+{{- end }}
 
