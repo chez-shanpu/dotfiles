@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(find:*)",
+      "Bash(go build:*)",
+      "Bash(go get:*)",
+      "Bash(go mod init:*)",
+      "Bash(ls:*)",
+      "Bash(make:*)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "Notification": [
+{{- if (eq .chezmoi.os "darwin") }}
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "DIR=$(basename \"$PWD\") && osascript -e \"display notification \\\"Claude Codeが許可を求めています\\\" with title \\\"Claude Code\\\" subtitle \\\"確認待ち - $DIR\\\" sound name \\\"Glass\\\"\""
+          }
+        ]
+      },
+{{- end }}
+    ],
+    "Stop": [
+{{- if (eq .chezmoi.os "darwin") }}
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "DIR=$(basename \"$PWD\") && osascript -e \"display notification \\\"タスクが完了しました\\\" with title \\\"Claude Code\\\" subtitle \\\"処理終了 - $DIR\\\" sound name \\\"Hero\\\"\""
+          }
+        ]
+      },
+{{- end }}
+    ]
+  }
+}
