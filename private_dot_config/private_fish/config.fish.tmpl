@@ -106,7 +106,7 @@ source /usr/local/opt/asdf/libexec/asdf.fish
 
 
 ########## alias ##########
-alias cc 'claude -c'
+alias cc 'claude -c || claude'
 
 {{- if (eq .chezmoi.os "darwin") }}
 alias rm 'trash'
@@ -175,3 +175,9 @@ if [ -f '~/google-cloud-sdk/path.fish.inc' ]; . '~/google-cloud-sdk/path.fish.in
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 set --export --prepend PATH "$HOME/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+
+########## Kiro ##########
+if command -v kiro > /dev/null
+    string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+end
