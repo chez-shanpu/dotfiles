@@ -34,6 +34,8 @@ set -x PATH ~/.local/bin $PATH
 {{- end }}
 set -x PATH $HOME/bin $PATH
 
+fish_add_path "$HOME/.local/bin"
+
 
 ########## Homebrew ##########
 set -x HOMEBREW_GITHUB_API_TOKEN {{ .homebrew_github_token }}
