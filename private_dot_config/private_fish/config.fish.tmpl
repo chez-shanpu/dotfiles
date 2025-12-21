@@ -8,6 +8,13 @@ set -g theme_date_format "+20%y/%m/%d %H:%M"
 set -g theme_display_k8s_context no
 
 
+########## history ##########
+
+function sync_history --on-event fish_exit
+    history merge
+end
+
+
 ########## fish plugin ##########
 # ghq
 set -U GHQ_SELECTOR peco
@@ -16,6 +23,8 @@ set -U GHQ_SELECTOR peco
 function fish_user_key_bindings
     #peco
     bind \cr peco_select_history
+    #tmux-ghq
+    bind \cg tmux-ghq
 end
 
 
@@ -35,6 +44,7 @@ set -x PATH ~/.local/bin $PATH
 set -x PATH $HOME/bin $PATH
 
 fish_add_path "$HOME/.local/bin"
+fish_add_path "$HOME/.rd/bin"
 
 
 ########## Homebrew ##########
@@ -57,6 +67,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x GPG_TTY (tty)
+set -gx MANPAGER "sh -c 'col -bx | bat -l man'"
 
 
 ########## direnv ##########
@@ -71,14 +82,18 @@ if test -d $HOME/.anyenv
     source (anyenv init - fish | psub)
 end
 
+
 ########## fzf ##########
 set -x FZF_DEFAULT_OPTS "--height 40% --reverse --border"
+
 
 ########## pipenv ##########
 set -x PIPENV_VENV_IN_PROJECT true
 
+
 ########## Aqua ##########
 set -x PATH $(aqua root-dir)/bin $PATH
+
 
 ########## go ##########
 set -x GOPATH ~/go
@@ -95,7 +110,7 @@ set -x KUBE_EDITOR nvim
 # kubebuilder
 set -x PATH /usr/local/kubebuilder/bin $PATH
 
-## krew
+# krew
 set -gx PATH $PATH $HOME/.krew/bin
 
 
@@ -171,7 +186,12 @@ set --export --prepend PATH "$HOME/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 
-########## Kiro ##########
-if command -v kiro > /dev/null
-    string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+########## pnpm ##########
+set -gx PNPM_HOME $(HOME)/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
+
+########## Antigravity ##########
+fish_add_path $(HOME)/.antigravity/antigravity/bin
+

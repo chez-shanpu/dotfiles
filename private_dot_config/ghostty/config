@@ -1,5 +1,5 @@
 font-family = "Cica"
-font-size = 17
+font-size = 20
 
 # theme = "Ayu Mirage"
 # theme =
@@ -7,5 +7,9 @@ theme = "Broadcast"
 
 cursor-color = "White"
 cursor-opacity = 0.7
+cursor-style = block
+cursor-style-blink = true
 
 clipboard-paste-protection = "true"
+
+shell-integration-features = no-cursor
