@@ -43,8 +43,8 @@ set -x PATH ~/.local/bin $PATH
 {{- end }}
 set -x PATH $HOME/bin $PATH
 
-fish_add_path "$HOME/.local/bin"
-fish_add_path "$HOME/.rd/bin"
+set -x PATH $HOME/.local/bin $PATH
+set -x PATH $HOME/.rd/bin $PATH
 
 
 ########## Homebrew ##########
@@ -193,5 +193,5 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 
 ########## Antigravity ##########
-fish_add_path $HOME/.antigravity/antigravity/bin
+set -x PATH $HOME/.antigravity/antigravity/bin $PATH
 
