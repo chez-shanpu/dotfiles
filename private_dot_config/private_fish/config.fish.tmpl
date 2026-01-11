@@ -6,6 +6,7 @@ alias kcn 'set -g theme_display_k8s_context no'
 # bobthefish-theme config
 set -g theme_date_format "+20%y/%m/%d %H:%M"
 set -g theme_display_k8s_context no
+set -g theme_display_go no
 
 
 ########## history ##########
@@ -73,13 +74,6 @@ set -gx MANPAGER "sh -c 'col -bx | bat -l man'"
 ########## direnv ##########
 if command -v direnv > /dev/null
     eval (direnv hook fish)
-end
-
-
-########## anyenv ##########
-if test -d $HOME/.anyenv
-    set -x PATH $HOME/.anyenv/bin $PATH
-    source (anyenv init - fish | psub)
 end
 
 

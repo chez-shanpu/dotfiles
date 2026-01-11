@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
       "Bash(curl:*)",
@@ -16,14 +17,14 @@
     "Notification": [
 {{- if (eq .chezmoi.os "darwin") }}
       {
-        "matcher": "",
+        "matcher": "permission_prompt",
         "hooks": [
           {
             "type": "command",
             "command": "DIR=$(basename \"$PWD\") && osascript -e \"display notification \\\"Claude Codeが許可を求めています\\\" with title \\\"Claude Code\\\" subtitle \\\"確認待ち - $DIR\\\" sound name \\\"Glass\\\"\""
           }
         ]
-      },
+      }
 {{- end }}
     ],
     "Stop": [
@@ -36,8 +37,11 @@
             "command": "DIR=$(basename \"$PWD\") && osascript -e \"display notification \\\"タスクが完了しました\\\" with title \\\"Claude Code\\\" subtitle \\\"処理終了 - $DIR\\\" sound name \\\"Hero\\\"\""
           }
         ]
-      },
+      }
 {{- end }}
     ]
-  }
+  },
+  "enabledPlugins": {
+    "document-skills@anthropic-agent-skills": true
+  },
 }
