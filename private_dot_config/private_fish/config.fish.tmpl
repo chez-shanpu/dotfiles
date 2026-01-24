@@ -1,7 +1,3 @@
-########## theme ##########
-starship init fish | source
-
-
 ########## history ##########
 
 function sync_history --on-event fish_exit
@@ -55,6 +51,11 @@ eval "$(/usr/local/bin/brew shellenv)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- end }}
 {{- end }}
+
+
+########## theme ##########
+starship init fish | source
+set -U fish_color_autosuggestion brblack --dim
 
 
 ########## Env Vars ##########
