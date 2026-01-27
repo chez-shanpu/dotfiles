@@ -2,11 +2,13 @@
 
 format = """
 [░▒▓](#a3aed2)\
-[  ](bg:#a3aed2 fg:#090c0c)\
+$os\
+$hostname\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\
 [](fg:#769ff0 bg:#394260)\
 $git_branch\
+$git_commit\
 $git_status\
 [](fg:#394260 bg:#212736)\
 $nodejs\
@@ -34,6 +36,14 @@ truncation_symbol = "…/"
 symbol = ""
 style = "bg:#394260"
 format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+ignore_branches = ["HEAD"]
+
+[git_commit]
+only_detached = true
+tag_disabled = false
+tag_symbol = " "
+style = "bg:#394260"
+format = '[[ $tag_symbol$tag ](fg:#f0c674 bg:#394260)]($style)'
 
 [git_status]
 style = "bg:#394260"
@@ -64,3 +74,23 @@ disabled = false
 time_format = "%T" # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[   $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[os]
+disabled = false
+style = "bg:#a3aed2 fg:#090c0c"
+format = "[ $symbol]($style)"
+
+[os.symbols]
+Macos = ""
+Linux = ""
+Ubuntu = ""
+Debian = ""
+Fedora = ""
+Arch = ""
+Windows = ""
+
+[hostname]
+ssh_only = true
+trim_at = "."
+style = "bg:#a3aed2 fg:#090c0c"
+format = "[ $hostname]($style)"
