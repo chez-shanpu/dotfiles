@@ -4,7 +4,6 @@ function sync_history --on-event fish_exit
     history merge
 end
 
-
 ########## fish plugin ##########
 # ghq
 set -U GHQ_SELECTOR peco
@@ -17,14 +16,11 @@ function fish_user_key_bindings
     bind \cg tmux-ghq
 end
 
-
 ########## editor ##########
 set -x EDITOR nvim
 
-
 ########## locale ##########
 set -x LC_CTYPE en_US.UTF-8
-
 
 ########## PATH ##########
 {{- if (eq .chezmoi.os "linux" ) }}
@@ -32,10 +28,7 @@ set -x PATH $HOME/.ngrok $PATH
 set -x PATH ~/.local/bin $PATH
 {{- end }}
 set -x PATH $HOME/bin $PATH
-
 set -x PATH $HOME/.local/bin $PATH
-set -x PATH $HOME/.rd/bin $PATH
-
 
 ########## Homebrew ##########
 set -x HOMEBREW_GITHUB_API_TOKEN {{ .homebrew_github_token }}
@@ -52,18 +45,17 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- end }}
 {{- end }}
 
+########## Rancher Desktop ##########
+set -x PATH $HOME/.rd/bin $PATH
 
 ########## theme ##########
 starship init fish | source
-set -U fish_color_autosuggestion brblack --dim
-
 
 ########## Env Vars ##########
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x GPG_TTY (tty)
 set -gx MANPAGER "sh -c 'col -bx | bat -l man'"
-
 
 ########## direnv ##########
 if command -v direnv > /dev/null
@@ -74,23 +66,18 @@ end
 ########## fzf ##########
 set -x FZF_DEFAULT_OPTS "--height 40% --reverse --border"
 
-
 ########## pipenv ##########
 set -x PIPENV_VENV_IN_PROJECT true
 
-
 ########## Aqua ##########
 set -x PATH $(aqua root-dir)/bin $PATH
-
 
 ########## go ##########
 set -x GOPATH ~/go
 set -x PATH $HOME/go/bin $PATH
 
-
 ########## rust ##########
 set -x PATH $HOME/.cargo/bin $PATH
-
 
 ########## kubernetes ##########
 set -x KUBE_EDITOR nvim
@@ -100,7 +87,6 @@ set -x PATH /usr/local/kubebuilder/bin $PATH
 
 # krew
 set -gx PATH $PATH $HOME/.krew/bin
-
 
 ########## alias ##########
 alias cc 'claude -c || claude'
@@ -164,7 +150,6 @@ alias kcon 'kubectl get pods --all-namespaces -o=jsonpath=\'{range .items[*]}{"\
 alias kcomdel 'kubectl get po | sed "1d" | grep -e Completed | cut -f 1 -d " " | xargs -I{} kubectl delete pod {}'
 alias kerrdel 'kubectl get po | sed "1d" | grep -e Error | cut -f 1 -d " " | xargs -I{} kubectl delete pod {}'
 
-
 ########## Gcloud ##########
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '~/google-cloud-sdk/path.fish.inc' ]; . '~/google-cloud-sdk/path.fish.inc'; end
@@ -172,7 +157,6 @@ if [ -f '~/google-cloud-sdk/path.fish.inc' ]; . '~/google-cloud-sdk/path.fish.in
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 set --export --prepend PATH "$HOME/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 
 ########## pnpm ##########
 set -gx PNPM_HOME $HOME/Library/pnpm
@@ -182,4 +166,3 @@ end
 
 ########## Antigravity ##########
 set -x PATH $HOME/.antigravity/antigravity/bin $PATH
-

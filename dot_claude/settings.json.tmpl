@@ -1,14 +1,30 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
   "permissions": {
     "allow": [
+      "Bash(cp:*)",
       "Bash(curl:*)",
       "Bash(find:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(git diff:*)",
+      "Bash(git ls-tree:*)",
       "Bash(go build:*)",
       "Bash(go get:*)",
       "Bash(go mod init:*)",
+      "Bash(grep:*)",
+      "Bash(kustomize build:*)",
+      "Bash(limactl create:*)",
+      "Bash(limactl shell:*)",
+      "Bash(limactl start:*)",
       "Bash(ls:*)",
-      "Bash(make:*)",
       "Bash(mkdir:*)"
     ],
     "deny": []
@@ -41,7 +57,12 @@
 {{- end }}
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "CLAUDE_STATUSLINE_NO_USAGE=1 bash ~/.claude/statusline.sh"
+  },
   "enabledPlugins": {
-    "document-skills@anthropic-agent-skills": true
+    "document-skills@anthropic-agent-skills": true,
+    "gopls-lsp@claude-plugins-official": true
   },
 }
