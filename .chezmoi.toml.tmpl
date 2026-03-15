@@ -1,3 +1,5 @@
+{{- $isWork := promptBoolOnce . "isWork" "work machine" -}}
+
 encryption = "age"
 
 [age]
@@ -5,9 +7,11 @@ encryption = "age"
     recipient = "age103gtxahm6tm29vpuu9t00yum2zgxrm33nyf5egvmal8pgtdgavjszejkem"
 
 [data]
+    isWork = {{ $isWork }}
+
     email = {{ default "tomoki.sugiura@mail.shanpu.info" (env "CHEZMOI_EMAIL") | quote }}
 
-    # git
+    # gith
     git_name = {{ default "chez-shanpu" (env "CHEZMOI_GIT_NAME") | quote }}
     git_signingkey = {{ default "" (env "CHEZMOI_GIT_SIGNINGKEY") | quote }}
 

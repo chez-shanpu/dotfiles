@@ -166,3 +166,12 @@ end
 
 ########## Antigravity ##########
 set -x PATH $HOME/.antigravity/antigravity/bin $PATH
+
+{{- if not .isWork}}
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH $HOME/.lmstudio/bin
+# End of LM Studio CLI section
+
+# OpenClaw Completion
+source "$HOME/.openclaw/completions/openclaw.fish"
+{{- end}}
