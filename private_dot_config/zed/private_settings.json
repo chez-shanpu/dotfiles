@@ -1,0 +1,80 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "agent_buffer_font_size": 20.0,
+  "agent_ui_font_size": 20.0,
+  "edit_predictions": {
+    "provider": "copilot",
+    "mode": "eager"
+  },
+  "agent": {
+    "sidebar_side": "right",
+    "enable_feedback": false,
+    "play_sound_when_agent_done": "always",
+    "dock": "right",
+    "model_parameters": [],
+    "limit_content_width": false,
+  },
+  "disable_ai": false,
+  "buffer_line_height": "comfortable",
+  "buffer_font_weight": 400.0,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": true,
+  "terminal": {
+    "dock": "right",
+    "env": {
+      "FIG_NEW_SESSION": "\"1\""
+    },
+    "font_size": 18.0,
+    "font_family": "Cica"
+  },
+  "use_system_window_tabs": true,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 2000
+    }
+  },
+  "buffer_font_fallbacks": ["Menlo", "Monaco", "Courier New", "monospace"],
+  "buffer_font_family": "Cica",
+  "auto_indent_on_paste": false,
+  "use_on_type_format": false,
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "base_keymap": "JetBrains",
+  "ui_font_size": 18.0,
+  "buffer_font_size": 18.0,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "JetBrains Darcula"
+  }
+}
