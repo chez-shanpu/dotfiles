@@ -7,7 +7,6 @@
     "allow": [
       "Bash(cp:*)",
       "Bash(curl:*)",
-      "Bash(find:*)",
       "Bash(gh pr checks:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
@@ -19,6 +18,7 @@
       "Bash(go build:*)",
       "Bash(go get:*)",
       "Bash(go mod init:*)",
+      "Bash(go version:*)",
       "Bash(grep:*)",
       "Bash(kustomize build:*)",
       "Bash(limactl create:*)",
@@ -27,7 +27,15 @@
       "Bash(ls:*)",
       "Bash(mkdir:*)"
     ],
-    "deny": []
+    "deny": [
+      "Bash(find:*)",
+      "Bash(git commit:*)",
+      "Bash(git cm:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(python3:*)"
+      "Bash(grep:*)",
+    ]
   },
   "hooks": {
     "Notification": [
