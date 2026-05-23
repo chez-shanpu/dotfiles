@@ -26,6 +26,8 @@ set -x LC_CTYPE en_US.UTF-8
 {{- if (eq .chezmoi.os "linux" ) }}
 set -x PATH $HOME/.ngrok $PATH
 set -x PATH ~/.local/bin $PATH
+{{- else if (eq .chezmoi.os "darwin" ) }}
+set -x PATH /opt/homebrew/opt/make/libexec/gnubin $PATH
 {{- end }}
 set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
@@ -89,7 +91,7 @@ set -x PATH /usr/local/kubebuilder/bin $PATH
 set -gx PATH $PATH $HOME/.krew/bin
 
 ########## alias ##########
-alias cc 'claude -c || claude'
+alias ccode 'claude -c || claude'
 
 {{- if (eq .chezmoi.os "darwin") }}
 alias rm 'trash'
