@@ -1,0 +1,29 @@
+{
+  "checksums": [
+    {
+      "id": "github_release/github.com/twpayne/chezmoi/v2.70.4/chezmoi_2.70.4_darwin_amd64.tar.gz",
+      "checksum": "DF605C409F16FF9CE002BD2690755C4C0AA6357CA4A065ED2F3CC7936A9F448E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/twpayne/chezmoi/v2.70.4/chezmoi_2.70.4_darwin_arm64.tar.gz",
+      "checksum": "0093FA436E9CCCCF423323315C0146F6DC77985294BD845CEE1F3CF3F63EEB0F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/twpayne/chezmoi/v2.70.4/chezmoi_2.70.4_linux_amd64.tar.gz",
+      "checksum": "7382F585D35647EBB492BD6345466E7F35564068B78285BB029CB2F35056ECF4",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/twpayne/chezmoi/v2.70.4/chezmoi_2.70.4_linux_arm64.tar.gz",
+      "checksum": "B2DC1E0DDF8BEFF09EE14F212271DD9E943D1D97D5F17A3D070CE35A6ADA9E14",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.515.0/registry.yaml",
+      "checksum": "C84C4E3B5E20ED4B3C3F5362A2AA06DF79DEA9EBA8E950DDD7CDFCFE008F47A2",
+      "algorithm": "sha256"
+    }
+  ]
+}
