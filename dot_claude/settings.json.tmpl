@@ -7,34 +7,42 @@
     "allow": [
       "Bash(cp:*)",
       "Bash(curl:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
       "Bash(gh pr checks:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
+      "Bash(gh release view:*)",
+      "Bash(gh repo view:*)",
       "Bash(gh run list:*)",
       "Bash(gh run view:*)",
       "Bash(git diff:*)",
+      "Bash(git fetch:*)",
       "Bash(git ls-tree:*)",
+      "Bash(git status:*)",
       "Bash(go build:*)",
       "Bash(go get:*)",
       "Bash(go mod init:*)",
       "Bash(go version:*)",
       "Bash(grep:*)",
+      "Bash(kind get:*)",
       "Bash(kustomize build:*)",
       "Bash(limactl create:*)",
       "Bash(limactl shell:*)",
       "Bash(limactl start:*)",
       "Bash(ls:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(rg:*)"
     ],
     "deny": [
       "Bash(find:*)",
-      "Bash(git commit:*)",
-      "Bash(git cm:*)",
-      "Bash(git push:*)",
+      "Bash(gh issue comment:*)",
       "Bash(gh pr comment:*)",
+      "Bash(git cm:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
       "Bash(python3:*)"
-      "Bash(grep:*)",
     ]
   },
   "hooks": {
@@ -58,7 +66,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "DIR=$(basename \"$PWD\") && osascript -e \"display notification \\\"タスクが完了しました\\\" with title \\\"Claude Code\\\" subtitle \\\"処理終了 - $DIR\\\" sound name \\\"Hero\\\"\""
+            "command": "INPUT=$(cat); case \"$INPUT\" in *'\"agent_id\"'*) exit 0 ;; esac; DIR=$(basename \"$PWD\") && osascript -e \"display notification \\\"タスクが完了しました\\\" with title \\\"Claude Code\\\" subtitle \\\"処理終了 - $DIR\\\" sound name \\\"Hero\\\"\""
           }
         ]
       }
@@ -75,10 +83,14 @@
   },
   "enabledPlugins": {
     "document-skills@anthropic-agent-skills": true,
-    "frontend-design@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "claude-code-setup@claude-plugins-official": true
+    "skill-creator@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true
   },
-  "language": "japanese"
+  "effortLevel": "xhigh",
+  "awaySummaryEnabled": false,
+  "skipAutoPermissionPrompt": true,
+  "feedbackSurveyState": {
+    "lastShownTime": 1754037278403
+  },
+  "skipWorkflowUsageWarning": true
 }

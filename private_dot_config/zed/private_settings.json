@@ -1,34 +1,36 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "show_edit_predictions": true,
+  "semantic_tokens": "combined",
+  "git": {
+    "git_gutter": "tracked_files",
+  },
+  "scrollbar": {
+    "git_diff": true,
+  },
+  "diff_view_style": "split",
   "agent_servers": {
     "claude-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "outline_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "git_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "agent_buffer_font_size": 20.0,
   "agent_ui_font_size": 20.0,
   "edit_predictions": {
-    "provider": "copilot",
-    "mode": "eager"
+    "allow_data_collection": "no",
+    "provider": "none",
+    "mode": "eager",
   },
   "agent": {
     "sidebar_side": "right",
@@ -43,38 +45,125 @@
   "buffer_font_weight": 400.0,
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "vim_mode": true,
   "terminal": {
-    "dock": "right",
+    "dock": "bottom",
     "env": {
-      "FIG_NEW_SESSION": "\"1\""
+      "FIG_NEW_SESSION": "\"1\"",
     },
     "font_size": 18.0,
-    "font_family": "Cica"
+    "font_family": "Cica",
   },
   "use_system_window_tabs": true,
   "autosave": {
     "after_delay": {
-      "milliseconds": 2000
-    }
+      "milliseconds": 2000,
+    },
   },
-  "buffer_font_fallbacks": ["Menlo", "Monaco", "Courier New", "monospace"],
+  "buffer_font_fallbacks": [
+    "Menlo",
+    "Monaco",
+    "Courier New",
+    "monospace"
+  ],
   "buffer_font_family": "Cica",
   "auto_indent_on_paste": false,
   "use_on_type_format": false,
   "icon_theme": {
     "mode": "light",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Zed (Default)",
   },
   "base_keymap": "JetBrains",
   "ui_font_size": 18.0,
   "buffer_font_size": 18.0,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
-    "dark": "JetBrains Darcula"
-  }
+    "dark": "JetBrains Darcula",
+  },
+  "markdown_preview_theme": "One Light",
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "semanticTokens": true,
+        "gofumpt": true,
+      },
+    },
+  },
+  "languages": {
+    "Markdown": {
+      "format_on_save": "on"
+    },
+    "Go": {
+      "semantic_tokens": "combined",
+    },
+    "Make": {
+      "hard_tabs": true,
+      "formatter": {
+        "external": {
+          "command": "mbake",
+          "arguments": [
+            "format",
+            "--stdin"
+          ],
+        },
+      },
+      "format_on_save": "off",
+    },
+  },
+  "global_lsp_settings": {
+    "semantic_token_rules": [
+      {
+        "token_type": "type",
+        "token_modifiers": [
+          "defaultLibrary"
+        ],
+        "foreground_color": "#cc7832ff",
+      },
+      {
+        "token_type": "function",
+        "token_modifiers": [
+          "defaultLibrary"
+        ],
+        "foreground_color": "#cc7832ff",
+      },
+      {
+        "token_type": "variable",
+        "token_modifiers": [
+          "readonly",
+          "defaultLibrary"
+        ],
+        "foreground_color": "#cc7832ff",
+      },
+      {
+        "token_type": "function",
+        "token_modifiers": [
+          "definition"
+        ],
+        "foreground_color": "#ffc66dff",
+      },
+      {
+        "token_type": "method",
+        "token_modifiers": [
+          "definition"
+        ],
+        "foreground_color": "#ffc66dff",
+      },
+      {
+        "token_type": "function",
+        "foreground_color": "#b09d79ff"
+      },
+      {
+        "token_type": "method",
+        "foreground_color": "#b09d79ff"
+      },
+      {
+        "token_type": "property",
+        "foreground_color": "#9876aaff"
+      },
+    ],
+  },
 }
