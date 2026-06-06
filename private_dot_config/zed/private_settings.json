@@ -2,35 +2,35 @@
   "show_edit_predictions": true,
   "semantic_tokens": "combined",
   "git": {
-    "git_gutter": "tracked_files",
+    "git_gutter": "tracked_files"
   },
   "scrollbar": {
-    "git_diff": true,
+    "git_diff": true
   },
   "diff_view_style": "split",
   "agent_servers": {
     "claude-acp": {
-      "type": "registry",
-    },
+      "type": "registry"
+    }
   },
   "project_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "outline_panel": {
-    "dock": "right",
+    "dock": "right"
   },
   "collaboration_panel": {
-    "dock": "right",
+    "dock": "right"
   },
   "git_panel": {
-    "dock": "right",
+    "dock": "right"
   },
   "agent_buffer_font_size": 20.0,
   "agent_ui_font_size": 20.0,
   "edit_predictions": {
     "allow_data_collection": "no",
-    "provider": "none",
-    "mode": "eager",
+    "provider": "copilot",
+    "mode": "eager"
   },
   "agent": {
     "sidebar_side": "right",
@@ -45,22 +45,22 @@
   "buffer_font_weight": 400.0,
   "telemetry": {
     "diagnostics": false,
-    "metrics": false,
+    "metrics": false
   },
   "vim_mode": true,
   "terminal": {
     "dock": "bottom",
     "env": {
-      "FIG_NEW_SESSION": "\"1\"",
+      "FIG_NEW_SESSION": "\"1\""
     },
     "font_size": 18.0,
-    "font_family": "Cica",
+    "font_family": "Cica"
   },
   "use_system_window_tabs": true,
   "autosave": {
     "after_delay": {
-      "milliseconds": 2000,
-    },
+      "milliseconds": 2000
+    }
   },
   "buffer_font_fallbacks": [
     "Menlo",
@@ -74,7 +74,7 @@
   "icon_theme": {
     "mode": "light",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)",
+    "dark": "Zed (Default)"
   },
   "base_keymap": "JetBrains",
   "ui_font_size": 18.0,

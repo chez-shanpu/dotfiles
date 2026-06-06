@@ -45,6 +45,7 @@
       "Bash(python3:*)"
     ]
   },
+  "model": "opus",
   "hooks": {
     "Notification": [
 {{- if (eq .chezmoi.os "darwin") }}
@@ -70,6 +71,19 @@
           }
         ]
       }
+    ],
+{{- if not .isWork }}
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/rtk-rewrite.sh"
+          }
+        ]
+{{- end }}
+      }
 {{- end }}
     ]
   },
@@ -83,14 +97,11 @@
   },
   "enabledPlugins": {
     "document-skills@anthropic-agent-skills": true,
-    "skill-creator@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
   },
-  "effortLevel": "xhigh",
-  "awaySummaryEnabled": false,
-  "skipAutoPermissionPrompt": true,
-  "feedbackSurveyState": {
-    "lastShownTime": 1754037278403
-  },
-  "skipWorkflowUsageWarning": true
+  "language": "japanese",
+  "agentPushNotifEnabled": true
 }
