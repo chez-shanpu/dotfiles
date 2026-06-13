@@ -1,7 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317"
   },
   "permissions": {
     "allow": [
@@ -17,9 +22,12 @@
       "Bash(gh repo view:*)",
       "Bash(gh run list:*)",
       "Bash(gh run view:*)",
+      "Bash(ghq list:*)",
       "Bash(git diff:*)",
       "Bash(git fetch:*)",
       "Bash(git ls-tree:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
       "Bash(git status:*)",
       "Bash(go build:*)",
       "Bash(go get:*)",
@@ -36,11 +44,13 @@
       "Bash(rg:*)"
     ],
     "deny": [
+      "Bash(aws:*)",
       "Bash(find:*)",
       "Bash(gh issue comment:*)",
       "Bash(gh pr comment:*)",
       "Bash(git cm:*)",
       "Bash(git commit:*)",
+      "Bash(git pu:*)",
       "Bash(git push:*)",
       "Bash(python3:*)"
     ]
@@ -89,11 +99,8 @@
   },
   "statusLine": {
     "type": "command",
-{{- if .isWork }}
-    "command": "CLAUDE_STATUSLINE_NO_USAGE=1 bash ~/.claude/statusline.sh"
-{{- else }}
-    "command": "bash ~/.claude/statusline.sh"
-{{- end }}
+    "command": "~/ghq/github.com/chez-shanpu/cc-o11y-stack/scripts/statusline.sh | ~/.claude/statusline.sh",
+    "refreshInterval": 30
   },
   "enabledPlugins": {
     "document-skills@anthropic-agent-skills": true,
@@ -103,5 +110,12 @@
     "claude-code-setup@claude-plugins-official": true,
   },
   "language": "japanese",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "effortLevel": "high",
+  "awaySummaryEnabled": false,
+  "skipWorkflowUsageWarning": true,
+  "skipAutoPermissionPrompt": true,
+  "feedbackSurveyState": {
+    "lastShownTime": 1754037278403
+  }
 }
