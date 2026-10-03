@@ -3,8 +3,9 @@ README.md
 xkeysnail
 aqua.yaml
 aqua-checksums.json
+tests
+**/__pycache__
 
 {{- if ne .chezmoi.os "darwin" }}
 private_dot_config/private_karabiner
 {{- end }}
-
