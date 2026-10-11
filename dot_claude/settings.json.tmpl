@@ -78,8 +78,8 @@
           }
         ]
       }
-    ],
-{{- if not .isWork }}
+{{- end }}
+    ]{{ if not .isWork }},
     "PreToolUse": [
       {
         "matcher": "Bash",
@@ -89,10 +89,9 @@
             "command": "~/.claude/hooks/rtk-rewrite.sh"
           }
         ]
-{{- end }}
       }
-{{- end }}
     ]
+{{- end }}
   },
   "statusLine": {
     "type": "command",
