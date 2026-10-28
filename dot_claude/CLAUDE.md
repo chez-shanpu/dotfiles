@@ -13,6 +13,8 @@
 - `git push` / PR 作成は自動で実行しない。
 - **GitHub の PR / Issue へ自動で投稿しない**: `gh pr comment`, `gh issue comment`, `gh pr review --comment` などユーザー名義で公開される投稿コマンドは実行しない。返信はチャットにテキスト（コードブロック）で提示し、投稿はユーザーに委ねる。Slack やメーリングリストなど他チャネルも同様。読み取り専用の `gh`（`gh pr view`, `gh pr checks`, `gh api .../pulls/...`）は可。
   **Why:** 公開される GitHub 会話（特に upstream OSS）での発言は本人が完全にコントロールしたい。
+- **コミットには `Assisted-by` trailer を付ける**: Claude がコミットを作成するときは、Linux カーネルの規約（Documentation/process/coding-assistants.rst）に倣い、メッセージ末尾の trailer に `Assisted-by: Claude:<実行中のモデルID>`（例: `Assisted-by: Claude:claude-opus-5-5`）を付ける。解析ツール等を使った場合は `Assisted-by: Claude:claude-opus-5-5 coccinelle sparse` のように後ろに列挙してよい。`Co-Authored-By` やセッションリンクの行は付けない。`Signed-off-by` は人間が DCO を証明するものなので Claude は付けない（`git commit -s` も使わない）。
+  **Why:** AI の関与を明示しつつ、作者・責任は人間に置くため。
 
 # 作業フロー
 
