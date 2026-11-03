@@ -1,0 +1,92 @@
+# herdr configuration
+# dot_tmux.conf の操作感に寄せた設定。tmux の window は herdr の tab に相当する。
+# 反映: herdr server reload-config（または prefix+shift+r）
+
+onboarding = false
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[ui]
+# tmux: status-position top
+tab_bar_position = "top"
+# 状態アイコンを色付きの点ではなく形で表示する
+status_indicators = "symbols"
+# タブ作成時に名前を聞かない。タブ名は fish の conf.d/herdr-tab-name.fish が自動で付ける
+prompt_new_tab_name = false
+
+# tmux の powerline（~/.config/powerline/themes/tmux/shanpu-tmux.json）に寄せたタブ行右端のステータス。
+# herdr は項目ごとの色指定や ANSI カラーに対応しないため、色は付かず区切り文字で区切るだけ。
+# command は /bin/sh -lc で実行され PATH に Homebrew が入らないことがあるので、macOS 標準のコマンドだけを使う。
+tab_bar_right = [
+  # アクティブなタブがズーム中のときだけ ZOOM を表示する
+  { type = "zoom" },
+  # 外部 IP
+  { type = "command", command = "curl -s --max-time 2 https://icanhazip.com", interval_seconds = 300, timeout_seconds = 3 },
+  # CPU 使用率（全プロセスの %CPU 合計をコア数で割る）
+  { type = "command", command = "ps -A -o %cpu= | awk -v n=\"$(sysctl -n hw.ncpu)\" '{s+=$1} END {printf \"cpu %.0f%%\\n\", s/n}'", interval_seconds = 5 },
+  # ネットワーク量。デフォルトルートのインターフェースの送受信バイト数を 1 秒あけて 2 回読み、差分を出す。
+  # VPN の utun など MAC アドレス列がないインターフェースでも崩れないよう、列は末尾から数える。
+  # デフォルトルートがないときは何も出力せず、項目ごと非表示になる。
+  # シングルクォートを含むので TOML の複数行リテラル文字列（'''）で書く。
+  { type = "command", command = '''i=$(route -n get default | awk '/interface:/{print $2}'); s() { netstat -ibn -I "$i" | awk '/<Link/{print $(NF-4), $(NF-1); exit}'; }; a=$(s); sleep 1; b=$(s); echo "$a $b" | awk 'function h(x) { if (x >= 1048576) return sprintf("%.1fM/s", x / 1048576); if (x >= 1024) return sprintf("%.0fK/s", x / 1024); return sprintf("%dB/s", x) } NF == 4 { printf "↓ %s ↑ %s\n", h($3 - $1), h($4 - $2) }' ''', interval_seconds = 5, timeout_seconds = 3 },
+  # バッテリー残量。バッテリーのない Mac では出力が空になり、項目ごと非表示になる
+  { type = "command", command = "pmset -g batt | grep -Eo '[0-9]+%'", interval_seconds = 60 },
+  { type = "datetime", format = "%Y/%m/%d %H:%M:%S" },
+  { type = "hostname" },
+]
+# powerline の細い区切り（Nerd Font の U+E0B1）を前後スペース付きで入れる
+tab_bar_right_separator = "  "
+
+[ui.toast]
+# エージェントの通知を macOS の通知センターに出す
+delivery = "system"
+
+[ui.sound]
+# エージェントの状態変化時のサウンドを鳴らさない
+enabled = false
+
+[keys]
+# tmux: set -g prefix C-j
+prefix = "ctrl+j"
+
+# tmux: bind | split-window -h（左右に分割）
+split_vertical = "prefix+|"
+# tmux: bind - split-window -v（上下に分割）。herdr のデフォルトと同じ
+split_horizontal = "prefix+minus"
+
+# tmux: bind h/j/k/l select-pane。herdr のデフォルトと同じ
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# tmux: bind -r H/J/K/L resize-pane
+# herdr には連打（-r）がないので、続けて調整したいときは resize_mode（prefix+r）を使う
+resize_pane_left = "prefix+shift+h"
+resize_pane_down = "prefix+shift+j"
+resize_pane_up = "prefix+shift+k"
+resize_pane_right = "prefix+shift+l"
+
+# herdr のデフォルトでは prefix+shift+hjkl がペイン入れ替えなので、リサイズに譲るため外す
+# （ペインの入れ替えはマウスで行う）
+swap_pane_left = ""
+swap_pane_down = ""
+swap_pane_up = ""
+swap_pane_right = ""
+
+# tmux: bind v copy-mode（prefix+[ も残す）
+# コピーモード内の v で選択開始、y / Enter でコピーは herdr のデフォルトと同じ
+copy_mode = ["prefix+[", "prefix+v"]
+
+# tmux: bind Left/Right swap-window
+move_tab_previous = "prefix+left"
+move_tab_next = "prefix+right"
+
+# tmux: base-index 1。herdr のタブ番号は 1 始まりなのでデフォルトのまま
+switch_tab = "prefix+1..9"
+
+[experimental]
+# 日本語入力のまま prefix を押しても、prefix 中は英数入力に切り替える（macOS）
+switch_ascii_input_source_in_prefix = true
