@@ -40,8 +40,8 @@ tab_bar_right = [
 tab_bar_right_separator = "  "
 
 [ui.toast]
-# エージェントの通知を macOS の通知センターに出す
-delivery = "system"
+# エージェントの通知は Claude Code の hook で出しているので、herdr からは通知しない
+delivery = "off"
 
 [ui.sound]
 # エージェントの状態変化時のサウンドを鳴らさない
