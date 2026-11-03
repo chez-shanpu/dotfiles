@@ -1,3 +1,9 @@
+{{ if (eq .chezmoi.os "darwin") -}}
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:$HOME/.docker/bin"
+# End of Docker Desktop section.
+{{- end }}
+
 ########## history ##########
 
 function sync_history --on-event fish_exit
@@ -12,8 +18,8 @@ set -U GHQ_SELECTOR peco
 function fish_user_key_bindings
     #peco
     bind \cr peco_select_history
-    #tmux-ghq
-    bind \cg tmux-ghq
+    #ghq-open（herdr / tmux を自動で選ぶ）
+    bind \cg ghq-open
 end
 
 ########## editor ##########
@@ -60,8 +66,8 @@ set -x GPG_TTY (tty)
 set -gx MANPAGER "sh -c 'col -bx | bat -l man'"
 
 ########## direnv ##########
-if command -v direnv > /dev/null
-    eval (direnv hook fish)
+if command -v direnv >/dev/null
+    direnv hook fish | source
 end
 
 ########## fzf ##########
@@ -93,9 +99,9 @@ set -gx PATH $PATH $HOME/.krew/bin
 alias ccode 'claude -c || claude'
 
 {{- if (eq .chezmoi.os "darwin") }}
-alias rm 'trash'
-if command -v gsed > /dev/null
-    alias sed 'gsed'
+alias rm trash
+if command -v gsed >/dev/null
+    alias sed gsed
 end
 {{- end }}
 
@@ -104,12 +110,12 @@ alias ls 'ls -a --color=auto'
 {{- end }}
 
 # bottom
-if command -v btm > /dev/null
+if command -v btm >/dev/null
     alias top="btm --color gruvbox --tree"
 end
 
 # eza
-if command -v eza > /dev/null
+if command -v eza >/dev/null
     alias l="eza"
     alias ls="eza"
     alias la="eza -a"
@@ -122,38 +128,40 @@ else
 end
 
 # bat
-if command -v bat > /dev/null
+if command -v bat >/dev/null
     alias cat="bat --plain"
 end
 
 # procs
-if command -v procs > /dev/null
+if command -v procs >/dev/null
     alias ps="procs"
     alias pst="procs --tree"
 end
 
 # git
-alias g 'git'
+alias g git
 alias ghb 'gh repo view -w'
 
 # nvim
-alias vi 'nvim'
+alias vi nvim
 
 # docker
-alias d 'docker'
-alias dc 'docker-compose'
+alias d docker
+alias dc docker-compose
 
 # kubernetes
-alias k 'kubectl'
-alias kn 'kubens'
-alias kc 'kubectx'
+alias k kubectl
+alias kn kubens
+alias kc kubectx
 alias kcon 'kubectl get pods --all-namespaces -o=jsonpath=\'{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}\' | sort'
 alias kcomdel 'kubectl get po | sed "1d" | grep -e Completed | cut -f 1 -d " " | xargs -I{} kubectl delete pod {}'
 alias kerrdel 'kubectl get po | sed "1d" | grep -e Error | cut -f 1 -d " " | xargs -I{} kubectl delete pod {}'
 
 ########## Gcloud ##########
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '~/google-cloud-sdk/path.fish.inc' ]; . '~/google-cloud-sdk/path.fish.inc'; end
+if [ -f '~/google-cloud-sdk/path.fish.inc' ]
+    . '~/google-cloud-sdk/path.fish.inc'
+end
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 set --export --prepend PATH "$HOME/.rd/bin"
@@ -174,5 +182,5 @@ set -gx PATH $PATH $HOME/.lmstudio/bin
 # End of LM Studio CLI section
 
 # OpenClaw Completion
-source "$HOME/.openclaw/completions/openclaw.fish"
+test -f "$HOME/.openclaw/completions/openclaw.fish"; and source "$HOME/.openclaw/completions/openclaw.fish"
 {{- end}}
