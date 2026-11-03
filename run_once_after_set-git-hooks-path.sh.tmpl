@@ -1,0 +1,3 @@
+#!/bin/sh
+# dotfiles リポジトリの pre-push hook（.githooks/pre-push、betterleaks による検査）を有効にする
+git -C {{ .chezmoi.sourceDir | quote }} config core.hooksPath .githooks

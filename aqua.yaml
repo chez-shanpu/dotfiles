@@ -13,3 +13,4 @@ registries:
     ref: v4.515.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: twpayne/chezmoi@v2.70.4
+  - name: betterleaks/betterleaks@v1.9.0

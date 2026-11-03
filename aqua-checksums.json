@@ -1,6 +1,26 @@
 {
   "checksums": [
     {
+      "id": "github_release/github.com/betterleaks/betterleaks/v1.9.0/betterleaks_1.9.0_darwin_arm64.tar.gz",
+      "checksum": "83DD7EAAB13D44A1E8E347A17064CDEF153A1478DB473276D41B38D55613D3F2",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/betterleaks/betterleaks/v1.9.0/betterleaks_1.9.0_darwin_x64.tar.gz",
+      "checksum": "68DFD83458D9E7F90663DAA7A81C7F944083B170DAE82E4F5F8D0581ED519EF1",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/betterleaks/betterleaks/v1.9.0/betterleaks_1.9.0_linux_arm64.tar.gz",
+      "checksum": "1D39116E0A58DC94574715E2AA12A2DBD5062F193EEE3FEC011FEF6BA06BD13B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/betterleaks/betterleaks/v1.9.0/betterleaks_1.9.0_linux_x64.tar.gz",
+      "checksum": "F8B185A39FFCECE2A1CA82BF3A4E7435CD81963FFD16B7A9128DAF75F35F6DE7",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/twpayne/chezmoi/v2.70.4/chezmoi_2.70.4_darwin_amd64.tar.gz",
       "checksum": "DF605C409F16FF9CE002BD2690755C4C0AA6357CA4A065ED2F3CC7936A9F448E",
       "algorithm": "sha256"

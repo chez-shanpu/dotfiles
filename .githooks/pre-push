@@ -1,0 +1,49 @@
+#!/bin/sh
+# push するコミットだけを betterleaks で検査し、シークレットが見つかったら push を止める。
+# 有効化: git config core.hooksPath .githooks（chezmoi の run_once_after_set-git-hooks-path.sh.tmpl が設定する）
+# 回避: git push --no-verify
+
+remote="$1"
+zero=$(git hash-object --stdin </dev/null | tr '0-9a-f' '0')
+
+# GUI の git クライアントなどで aqua の bin が PATH にないときに備える
+if ! command -v betterleaks >/dev/null 2>&1 && command -v aqua >/dev/null 2>&1; then
+	PATH="$(aqua root-dir)/bin:$PATH"
+fi
+if ! command -v betterleaks >/dev/null 2>&1; then
+	echo "pre-push: betterleaks が見つかりません。リポジトリ直下で 'aqua i -l' を実行してください。" >&2
+	echo "pre-push: 検査せずに push するなら 'git push --no-verify'。" >&2
+	exit 1
+fi
+
+# 検出時の終了コード。betterleaks 自体のエラー（1 など）と区別するため 1 以外にする
+leak_code=2
+status=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+	# ブランチの削除は検査するコミットがない
+	[ "$local_sha" = "$zero" ] && continue
+
+	if [ "$remote_sha" = "$zero" ] || ! git cat-file -e "$remote_sha^{commit}" 2>/dev/null; then
+		# 新しいブランチ、またはリモートの先端がローカルにない（未 fetch の force push など）:
+		# どのリモートにもまだないコミットだけを検査する
+		range="$local_sha --not --remotes=$remote"
+	else
+		range="$remote_sha..$local_sha"
+	fi
+
+	echo "pre-push: betterleaks で $local_ref -> $remote_ref を検査します" >&2
+	betterleaks git --no-banner --redact -v --exit-code "$leak_code" --log-opts="$range" .
+	rc=$?
+	if [ "$rc" -eq "$leak_code" ]; then
+		echo "pre-push: シークレットらしき文字列が見つかったので push を止めました。" >&2
+		echo "pre-push: 誤検出なら、次のコマンドで出る Fingerprint を .betterleaksignore に 1 行ずつ追記してください:" >&2
+		echo "  betterleaks git --no-banner --redact --exit-code 0 --log-opts=\"$range\" -r - -f json . | jq -r '.[].Fingerprint'" >&2
+		status=1
+	elif [ "$rc" -ne 0 ]; then
+		# 全角文字の直前は ${} で区切る（macOS の /bin/sh は多バイト文字を変数名の続きとして読むことがある）
+		echo "pre-push: betterleaks の実行に失敗したので push を止めました（exit ${rc}）。" >&2
+		status=1
+	fi
+done
+
+exit "$status"
